@@ -1,70 +1,50 @@
 part of 'github_bloc.dart';
 
 sealed class GithubEvent extends Equatable {
-  final String? apiCallUrl;
-
-  const GithubEvent({required this.apiCallUrl});
+  const GithubEvent();
 
   @override
-  List<Object?> get props => [apiCallUrl];
+  List<Object?> get props => [];
 }
 
-final class FetchPublicRepos extends GithubEvent {
-  const FetchPublicRepos({super.apiCallUrl});
-}
+final class FetchPublicReposEvent extends GithubEvent {}
 
-final class SearchRepos extends GithubEvent {
+final class SearchReposEvent extends GithubEvent {
   final String keyword;
 
-  const SearchRepos({required this.keyword, super.apiCallUrl});
+  const SearchReposEvent({required this.keyword});
 
   @override
-  List<Object?> get props => [keyword, apiCallUrl];
+  List<Object?> get props => [keyword];
 }
 
-final class FetchRepoDetails extends GithubEvent {
+final class FetchRepoDetailsEvent extends GithubEvent {
   final String owner;
   final String repo;
-  const FetchRepoDetails({
-    required this.owner,
-    required this.repo,
-    super.apiCallUrl,
-  });
+  const FetchRepoDetailsEvent({required this.owner, required this.repo});
 
   @override
-  List<Object?> get props => [owner, repo, apiCallUrl];
+  List<Object?> get props => [owner, repo];
 }
 
-final class FetchIssues extends GithubEvent {
+final class FetchIssuesEvent extends GithubEvent {
   final String owner;
   final String repo;
-  const FetchIssues({
-    required this.owner,
-    required this.repo,
-    super.apiCallUrl,
-  });
+  const FetchIssuesEvent({required this.owner, required this.repo});
 
   @override
-  List<Object?> get props => [owner, repo, apiCallUrl];
+  List<Object?> get props => [owner, repo];
 }
 
-final class FetchPullRequests extends GithubEvent {
+final class FetchPullRequestsEvent extends GithubEvent {
   final String owner;
   final String repo;
-  const FetchPullRequests({
-    required this.owner,
-    required this.repo,
-    super.apiCallUrl,
-  });
+  const FetchPullRequestsEvent({required this.owner, required this.repo});
 
   @override
-  List<Object?> get props => [owner, repo, apiCallUrl];
+  List<Object?> get props => [owner, repo];
 }
 
-final class ClearRepos extends GithubEvent {
-  const ClearRepos({super.apiCallUrl});
-}
+final class ClearReposEvent extends GithubEvent {}
 
-final class RetryFetch extends GithubEvent {
-  const RetryFetch({super.apiCallUrl});
-}
+final class RetryFetchEvent extends GithubEvent {}

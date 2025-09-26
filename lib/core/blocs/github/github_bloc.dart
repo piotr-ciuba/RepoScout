@@ -11,19 +11,19 @@ part 'github_state.dart';
 class GithubBloc extends Bloc<GithubEvent, GithubState> {
   GithubBloc(this._githubRepository) : super(GithubInitial()) {
     on<GithubEvent>((event, emit) {});
-    on<FetchPublicRepos>(_fetchPublicRepos);
-    on<FetchRepoDetails>(_fetchRepoDetails);
-    on<SearchRepos>(_searchRepos);
-    on<FetchIssues>(_fetchIssues);
-    on<FetchPullRequests>(_fetchPullRequests);
-    on<ClearRepos>(_clear);
-    on<RetryFetch>(_retry);
+    on<FetchPublicReposEvent>(_fetchPublicRepos);
+    on<FetchRepoDetailsEvent>(_fetchRepoDetails);
+    on<SearchReposEvent>(_searchRepos);
+    on<FetchIssuesEvent>(_fetchIssues);
+    on<FetchPullRequestsEvent>(_fetchPullRequests);
+    on<ClearReposEvent>(_clear);
+    on<RetryFetchEvent>(_retry);
   }
 
   final GithubRepository _githubRepository;
 
   Future<void> _fetchPublicRepos(
-    FetchPublicRepos event,
+    FetchPublicReposEvent event,
     Emitter<GithubState> emit,
   ) async {
     _emitLoadingState(event, emit);
@@ -32,21 +32,19 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
-          lastApiCall: event.apiCallUrl,
+          lastEvent: event,
           repos: repos,
           issues: state.issues,
           pullRequests: state.pullRequests,
         ),
       );
     } catch (error) {
-      emit(
-        GithubError(message: error.toString(), lastApiCall: event.apiCallUrl),
-      );
+      emit(GithubError(message: error.toString(), lastEvent: event));
     }
   }
 
   Future<void> _searchRepos(
-    SearchRepos event,
+    SearchReposEvent event,
     Emitter<GithubState> emit,
   ) async {
     _emitLoadingState(event, emit);
@@ -55,21 +53,19 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
-          lastApiCall: event.apiCallUrl,
+          lastEvent: event,
           repos: repos,
           issues: state.issues,
           pullRequests: state.pullRequests,
         ),
       );
     } catch (error) {
-      emit(
-        GithubError(message: error.toString(), lastApiCall: event.apiCallUrl),
-      );
+      emit(GithubError(message: error.toString(), lastEvent: event));
     }
   }
 
   Future<void> _fetchRepoDetails(
-    FetchRepoDetails event,
+    FetchRepoDetailsEvent event,
     Emitter<GithubState> emit,
   ) async {
     _emitLoadingState(event, emit);
@@ -81,21 +77,19 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
       emit(
         GithubSuccess(
           selectedRepo: repoDetails,
-          lastApiCall: event.apiCallUrl,
+          lastEvent: event,
           repos: state.repos,
           issues: state.issues,
           pullRequests: state.pullRequests,
         ),
       );
     } catch (error) {
-      emit(
-        GithubError(message: error.toString(), lastApiCall: event.apiCallUrl),
-      );
+      emit(GithubError(message: error.toString(), lastEvent: event));
     }
   }
 
   Future<void> _fetchIssues(
-    FetchIssues event,
+    FetchIssuesEvent event,
     Emitter<GithubState> emit,
   ) async {
     _emitLoadingState(event, emit);
@@ -107,21 +101,19 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
-          lastApiCall: event.apiCallUrl,
+          lastEvent: event,
           repos: state.repos,
           issues: issues,
           pullRequests: state.pullRequests,
         ),
       );
     } catch (error) {
-      emit(
-        GithubError(message: error.toString(), lastApiCall: event.apiCallUrl),
-      );
+      emit(GithubError(message: error.toString(), lastEvent: event));
     }
   }
 
   Future<void> _fetchPullRequests(
-    FetchPullRequests event,
+    FetchPullRequestsEvent event,
     Emitter<GithubState> emit,
   ) async {
     _emitLoadingState(event, emit);
@@ -133,16 +125,14 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
-          lastApiCall: event.apiCallUrl,
+          lastEvent: event,
           repos: state.repos,
           issues: state.issues,
           pullRequests: pullRequests,
         ),
       );
     } catch (error) {
-      emit(
-        GithubError(message: error.toString(), lastApiCall: event.apiCallUrl),
-      );
+      emit(GithubError(message: error.toString(), lastEvent: event));
     }
   }
 
@@ -150,7 +140,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
     emit(
       GithubLoading(
         selectedRepo: state.selectedRepo,
-        lastApiCall: event.apiCallUrl,
+        lastEvent: event,
         repos: state.repos,
         issues: state.issues,
         pullRequests: state.pullRequests,
@@ -163,8 +153,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
   }
 
   void _retry(GithubEvent event, Emitter<GithubState> emit) {
-    if (state is GithubError && event.apiCallUrl != null) {
-      add(event);
+    if (state is GithubError) {
+      add(state.lastEvent!);
     }
   }
 }
