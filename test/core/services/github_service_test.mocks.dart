@@ -8,8 +8,8 @@ import 'dart:async' as _i5;
 import 'package:dio/dio.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;
+import 'package:repo_scout_app/common/endpoints.dart' as _i3;
 import 'package:repo_scout_app/core/utils/api_client.dart' as _i4;
-import 'package:repo_scout_app/core/utils/endpoints.dart' as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -847,6 +847,23 @@ class MockEndpoints extends _i1.Mock implements _i3.Endpoints {
             returnValue: _i6.dummyValue<String>(
               this,
               Invocation.getter(#publicReposUrl),
+            ),
+          )
+          as String);
+
+  @override
+  String repoDetailsUrl({required String? owner, required String? repo}) =>
+      (super.noSuchMethod(
+            Invocation.method(#repoDetailsUrl, [], {
+              #owner: owner,
+              #repo: repo,
+            }),
+            returnValue: _i6.dummyValue<String>(
+              this,
+              Invocation.method(#repoDetailsUrl, [], {
+                #owner: owner,
+                #repo: repo,
+              }),
             ),
           )
           as String);
