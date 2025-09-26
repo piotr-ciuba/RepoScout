@@ -12,7 +12,11 @@ final serviceLocator = GetIt.instance;
   asExtension: true,
 )
 void configureDependencies() {
-  final Dio dio = Dio();
-  serviceLocator.registerSingleton<Dio>(dio);
   serviceLocator.init();
+}
+
+@module
+abstract class RegisterModule {
+  @singleton
+  Dio get dio => Dio();
 }
