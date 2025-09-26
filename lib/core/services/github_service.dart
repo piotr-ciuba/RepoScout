@@ -15,8 +15,16 @@ class GithubService {
   Future<Response<dynamic>> fetchPublicRepos() =>
       apiClient.dio.get(apiClient.endpoints.publicReposUrl, options: options);
 
-  Future<Response<dynamic>> searchRepo(String query) => apiClient.dio.get(
-    apiClient.endpoints.searchRepoUrl(query: query),
+  Future<Response<dynamic>> fetchRepoDetails({
+    required String owner,
+    required String repo,
+  }) => apiClient.dio.get(
+    apiClient.endpoints.repoDetailsUrl(owner: owner, repo: repo),
+    options: options,
+  );
+
+  Future<Response<dynamic>> searchRepos(String keyword) => apiClient.dio.get(
+    apiClient.endpoints.searchRepoUrl(query: keyword),
     options: options,
   );
 

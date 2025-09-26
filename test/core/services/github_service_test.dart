@@ -79,7 +79,7 @@ void main() {
         ).thenAnswer((_) async => mockResponse);
 
         // Act
-        final result = await githubService.searchRepo(query);
+        final result = await githubService.searchRepos(query);
 
         // Assert
         verify(mockEndpoints.searchRepoUrl(query: query)).called(1);
@@ -102,7 +102,7 @@ void main() {
         ).thenAnswer((_) async => mockResponse);
 
         // Act
-        final result = await githubService.searchRepo(query);
+        final result = await githubService.searchRepos(query);
 
         // Assert
         verify(mockEndpoints.searchRepoUrl(query: query)).called(1);
