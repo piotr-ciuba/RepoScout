@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:repo_scout_app/core/utils/app_router.dart';
 import 'package:repo_scout_app/core/utils/injector.dart';
-import 'package:repo_scout_app/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
   configureDependencies();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,12 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp.router(
+      title: 'Repo Scout',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      routerConfig: appRouter,
     );
   }
 }
