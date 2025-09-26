@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       routerConfig: appRouter,
+      routerDelegate: appRouter.routerDelegate,
+      routeInformationParser: appRouter.routeInformationParser,
+      routeInformationProvider: appRouter.routeInformationProvider,
     );
   }
 }

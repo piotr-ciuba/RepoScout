@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+mixin AppColors {
   // Primary Green
   static const Color primaryGreen100 = Color(0xFFE8F5E9);
   static const Color primaryGreen200 = Color(0xFFC8E6C9);
@@ -77,4 +77,25 @@ class AppColors {
   static const Color primaryGrey700 = Color(0xFF757575);
   static const Color primaryGrey800 = Color(0xFF616161);
   static const Color primaryGrey900 = Color(0xFF424242);
+
+  static Color getLanguageColor(String language) {
+    const languageColors = {
+      'Dart': Color(0xFF00B4AB),
+      'Flutter': Color(0xFF02569B),
+      'JavaScript': Color(0xFFF1E05A),
+      'TypeScript': Color(0xFF2B7489),
+      'Python': Color(0xFF3572A5),
+      'Java': Color(0xFFB07219),
+      'Swift': Color(0xFFFA7343),
+      'Kotlin': Color(0xFF7F52FF),
+      'C++': Color(0xFFF34B7D),
+      'C': Color(0xFF555555),
+      'Go': Color(0xFF00ADD8),
+      'Rust': Color(0xFFDEA584),
+      'Ruby': Color(0xFF701516),
+      'PHP': Color(0xFF4F5D95),
+    };
+
+    return languageColors[language] ?? AppColors.primaryGrey600;
+  }
 }

@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'package:repo_scout_app/core/services/github_service.dart';
 import 'package:repo_scout_app/core/utils/api_client.dart';
-import 'package:repo_scout_app/core/utils/endpoints.dart';
+import 'package:repo_scout_app/common/endpoints.dart';
 
 import 'github_service_test.mocks.dart';
 
