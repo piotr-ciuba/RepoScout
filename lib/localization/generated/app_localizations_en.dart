@@ -13,4 +13,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchRepositoriesHint => 'Search repositories...';
+
+  @override
+  String get navbarSearchTitle => 'Search';
+
+  @override
+  String get navbarFavoriteTitle => 'Favorite';
+
+  @override
+  String get navbarDiscoverTitle => 'Discover';
 }

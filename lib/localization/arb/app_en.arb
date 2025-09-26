@@ -1,4 +1,7 @@
 {
   "appTitle": "Repo Scout",
-  "searchRepositoriesHint": "Search repositories..."
+  "searchRepositoriesHint": "Search repositories...",
+  "navbarSearchTitle": "Search",
+  "navbarFavoriteTitle": "Favorite",
+  "navbarDiscoverTitle": "Discover"
 }

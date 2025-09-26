@@ -109,6 +109,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search repositories...'**
   String get searchRepositoriesHint;
+
+  /// No description provided for @navbarSearchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get navbarSearchTitle;
+
+  /// No description provided for @navbarFavoriteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get navbarFavoriteTitle;
+
+  /// No description provided for @navbarDiscoverTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover'**
+  String get navbarDiscoverTitle;
 }
 
 class _AppLocalizationsDelegate
