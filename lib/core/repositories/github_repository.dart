@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:repo_scout_app/core/services/github_service.dart';
+import 'package:repo_scout_app/extensions/core/dio_extensions.dart';
 import 'package:repo_scout_app/models/issue/issue.dart';
 import 'package:repo_scout_app/models/pull_request/pull_request.dart';
 import 'package:repo_scout_app/models/repo/repo.dart';
@@ -14,7 +15,7 @@ class GithubRepository {
   Future<List<Repo>> fetchPublicRepos() async {
     final Response<dynamic> response = await githubService.fetchPublicRepos();
 
-    if (response.statusCode == 200) {
+    if (response.isSuccess) {
       final List<dynamic> data = response.data as List<dynamic>;
       return data
           .map((json) => Repo.fromJson(json as Map<String, dynamic>))
@@ -33,7 +34,7 @@ class GithubRepository {
       repo: repo,
     );
 
-    if (response.statusCode == 200) {
+    if (response.isSuccess) {
       final Map<String, dynamic> data = response.data as Map<String, dynamic>;
       return Repo.fromJson(data);
     } else {
@@ -44,7 +45,7 @@ class GithubRepository {
   Future<List<Repo>> searchRepos(String keyword) async {
     final Response<dynamic> response = await githubService.searchRepos(keyword);
 
-    if (response.statusCode == 200) {
+    if (response.isSuccess) {
       final Map<String, dynamic> data = response.data as Map<String, dynamic>;
       final List<dynamic> items = data['items'] as List<dynamic>;
       return items
@@ -64,7 +65,7 @@ class GithubRepository {
       repo: repo,
     );
 
-    if (response.statusCode == 200) {
+    if (response.isSuccess) {
       final List<dynamic> data = response.data as List<dynamic>;
       return data
           .map((json) => PullRequest.fromJson(json as Map<String, dynamic>))
@@ -83,7 +84,7 @@ class GithubRepository {
       repo: repo,
     );
 
-    if (response.statusCode == 200) {
+    if (response.isSuccess) {
       final List<dynamic> data = response.data as List<dynamic>;
       return data
           .map((json) => Issue.fromJson(json as Map<String, dynamic>))
