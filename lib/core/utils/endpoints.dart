@@ -1,3 +1,6 @@
+import 'package:injectable/injectable.dart';
+
+@singleton
 class Endpoints {
   final String _githubBaseUrl = 'https://api.github.com';
 

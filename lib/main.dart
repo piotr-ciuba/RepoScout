@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:repo_scout_app/core/utils/injector.dart';
 import 'package:repo_scout_app/home_page.dart';
 
 void main() {
   runApp(const MyApp());
+  configureDependencies();
 }
 
 class MyApp extends StatelessWidget {
