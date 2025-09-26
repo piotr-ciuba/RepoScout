@@ -91,7 +91,7 @@ abstract class Repo with _$Repo {
     required int? subscribersCount,
     required int? networkCount,
     required License? license,
-    required List<Repo>? forks,
+    required int? forks,
     required int? openIssues,
     required int? watchers,
   }) = _Repo;

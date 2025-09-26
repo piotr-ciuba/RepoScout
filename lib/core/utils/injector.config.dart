@@ -13,6 +13,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../repositories/github_repository.dart' as _i949;
 import '../services/github_service.dart' as _i493;
 import 'api_client.dart' as _i1013;
 import 'endpoints.dart' as _i434;
@@ -36,6 +37,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i493.GithubService>(
       () => _i493.GithubService(apiClient: gh<_i1013.ApiClient>()),
+    );
+    gh.singleton<_i949.GithubRepository>(
+      () => _i949.GithubRepository(githubService: gh<_i493.GithubService>()),
     );
     return this;
   }

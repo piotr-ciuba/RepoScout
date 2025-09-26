@@ -95,9 +95,7 @@ _Repo _$RepoFromJson(Map<String, dynamic> json) => _Repo(
   license: json['license'] == null
       ? null
       : License.fromJson(json['license'] as Map<String, dynamic>),
-  forks: (json['forks'] as List<dynamic>?)
-      ?.map((e) => Repo.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  forks: (json['forks'] as num?)?.toInt(),
   openIssues: (json['openIssues'] as num?)?.toInt(),
   watchers: (json['watchers'] as num?)?.toInt(),
 );
