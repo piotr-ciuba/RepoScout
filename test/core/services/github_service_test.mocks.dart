@@ -841,12 +841,12 @@ class MockEndpoints extends _i1.Mock implements _i3.Endpoints {
   }
 
   @override
-  String get publicReposUrl =>
+  String get searchRepoUrl =>
       (super.noSuchMethod(
-            Invocation.getter(#publicReposUrl),
+            Invocation.getter(#searchRepoUrl),
             returnValue: _i6.dummyValue<String>(
               this,
-              Invocation.getter(#publicReposUrl),
+              Invocation.getter(#searchRepoUrl),
             ),
           )
           as String);
@@ -864,17 +864,6 @@ class MockEndpoints extends _i1.Mock implements _i3.Endpoints {
                 #owner: owner,
                 #repo: repo,
               }),
-            ),
-          )
-          as String);
-
-  @override
-  String searchRepoUrl({required String? query}) =>
-      (super.noSuchMethod(
-            Invocation.method(#searchRepoUrl, [], {#query: query}),
-            returnValue: _i6.dummyValue<String>(
-              this,
-              Invocation.method(#searchRepoUrl, [], {#query: query}),
             ),
           )
           as String);

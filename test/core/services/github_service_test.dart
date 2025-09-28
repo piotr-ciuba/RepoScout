@@ -5,6 +5,7 @@ import 'package:mockito/annotations.dart';
 import 'package:repo_scout_app/core/services/github_service.dart';
 import 'package:repo_scout_app/core/utils/api_client.dart';
 import 'package:repo_scout_app/common/endpoints.dart';
+import 'package:repo_scout_app/common/enums/github_sort.dart';
 
 import 'github_service_test.mocks.dart';
 
@@ -28,84 +29,217 @@ void main() {
     });
 
     group('fetchPublicRepos', () {
-      test('should call dio.get with correct URL and options', () async {
+      test(
+        'should call dio.get with correct URL and query parameters',
+        () async {
+          // Arrange
+          const searchRepoUrl = 'https://api.github.com/search/repositories';
+          final mockResponse = Response<dynamic>(
+            data: {'items': []},
+            statusCode: 200,
+            requestOptions: RequestOptions(path: searchRepoUrl),
+          );
+
+          when(mockEndpoints.searchRepoUrl).thenReturn(searchRepoUrl);
+          when(
+            mockDio.get(
+              any,
+              queryParameters: anyNamed('queryParameters'),
+              options: anyNamed('options'),
+            ),
+          ).thenAnswer((_) async => mockResponse);
+
+          // Act
+          final result = await githubService.fetchPublicRepos();
+
+          // Assert
+          verify(
+            mockDio.get(
+              searchRepoUrl,
+              queryParameters: {
+                'q': 'is:public',
+                'sort': GitHubSort.updated,
+                'page': 1,
+                'per_page': 10,
+              },
+              options: argThat(
+                isA<Options>()
+                    .having((o) => o.followRedirects, 'followRedirects', false)
+                    .having(
+                      (o) => o.validateStatus,
+                      'validateStatus',
+                      isNotNull,
+                    ),
+                named: 'options',
+              ),
+            ),
+          ).called(1);
+          expect(result, equals(mockResponse));
+        },
+      );
+
+      test('should use custom sort and order parameters', () async {
         // Arrange
-        const publicReposUrl = 'https://api.github.com/repositories';
+        const searchRepoUrl = 'https://api.github.com/search/repositories';
         final mockResponse = Response<dynamic>(
-          data: [],
+          data: {'items': []},
           statusCode: 200,
-          requestOptions: RequestOptions(path: publicReposUrl),
+          requestOptions: RequestOptions(path: searchRepoUrl),
         );
 
-        when(mockEndpoints.publicReposUrl).thenReturn(publicReposUrl);
+        when(mockEndpoints.searchRepoUrl).thenReturn(searchRepoUrl);
         when(
-          mockDio.get(any, options: anyNamed('options')),
+          mockDio.get(
+            any,
+            queryParameters: anyNamed('queryParameters'),
+            options: anyNamed('options'),
+          ),
         ).thenAnswer((_) async => mockResponse);
 
         // Act
-        final result = await githubService.fetchPublicRepos();
+        final result = await githubService.fetchPublicRepos(
+          page: 2,
+          perPage: 10,
+          sort: GitHubSort.updated,
+        );
 
         // Assert
         verify(
           mockDio.get(
-            publicReposUrl,
-            options: argThat(
-              isA<Options>()
-                  .having((o) => o.followRedirects, 'followRedirects', false)
-                  .having((o) => o.validateStatus, 'validateStatus', isNotNull),
-              named: 'options',
-            ),
+            searchRepoUrl,
+            queryParameters: {
+              'q': 'is:public',
+              'sort': GitHubSort.updated,
+              'page': 2,
+              'per_page': 10,
+            },
+            options: anyNamed('options'),
           ),
         ).called(1);
         expect(result, equals(mockResponse));
       });
     });
 
-    group('searchRepo', () {
-      test('should call dio.get with correct URL and query', () async {
-        // Arrange
-        const query = 'flutter';
-        const searchUrl =
-            'https://api.github.com/search/repositories?q=flutter';
-        final mockResponse = Response<dynamic>(
-          data: {'items': []},
-          statusCode: 200,
-          requestOptions: RequestOptions(path: searchUrl),
-        );
+    group('searchRepos', () {
+      test(
+        'should call dio.get with correct URL and query parameters',
+        () async {
+          // Arrange
+          const query = 'flutter';
+          const searchRepoUrl = 'https://api.github.com/search/repositories';
+          final mockResponse = Response<dynamic>(
+            data: {'items': []},
+            statusCode: 200,
+            requestOptions: RequestOptions(path: searchRepoUrl),
+          );
 
-        when(mockEndpoints.searchRepoUrl(query: query)).thenReturn(searchUrl);
-        when(
-          mockDio.get(any, options: anyNamed('options')),
-        ).thenAnswer((_) async => mockResponse);
+          when(mockEndpoints.searchRepoUrl).thenReturn(searchRepoUrl);
+          when(
+            mockDio.get(
+              any,
+              queryParameters: anyNamed('queryParameters'),
+              options: anyNamed('options'),
+            ),
+          ).thenAnswer((_) async => mockResponse);
 
-        // Act
-        final result = await githubService.searchRepos(query);
+          // Act
+          final result = await githubService.searchRepos(query);
 
-        // Assert
-        verify(mockEndpoints.searchRepoUrl(query: query)).called(1);
-        expect(result, equals(mockResponse));
-      });
+          // Assert
+          verify(
+            mockDio.get(
+              searchRepoUrl,
+              queryParameters: {
+                'q': query,
+                'page': 1,
+                'per_page': 10,
+                'sort': GitHubSort.updated,
+              },
+              options: anyNamed('options'),
+            ),
+          ).called(1);
+          expect(result, equals(mockResponse));
+        },
+      );
 
       test('should handle empty query', () async {
         // Arrange
         const query = '';
-        const searchUrl = 'https://api.github.com/search/repositories?q=';
+        const searchRepoUrl = 'https://api.github.com/search/repositories';
         final mockResponse = Response<dynamic>(
           data: {'items': []},
           statusCode: 200,
-          requestOptions: RequestOptions(path: searchUrl),
+          requestOptions: RequestOptions(path: searchRepoUrl),
         );
 
-        when(mockEndpoints.searchRepoUrl(query: query)).thenReturn(searchUrl);
+        when(mockEndpoints.searchRepoUrl).thenReturn(searchRepoUrl);
         when(
-          mockDio.get(any, options: anyNamed('options')),
+          mockDio.get(
+            any,
+            queryParameters: anyNamed('queryParameters'),
+            options: anyNamed('options'),
+          ),
         ).thenAnswer((_) async => mockResponse);
 
         // Act
         final result = await githubService.searchRepos(query);
 
         // Assert
-        verify(mockEndpoints.searchRepoUrl(query: query)).called(1);
+        verify(
+          mockDio.get(
+            searchRepoUrl,
+            queryParameters: {
+              'q': query,
+              'page': 1,
+              'per_page': 10,
+              'sort': GitHubSort.updated,
+            },
+            options: anyNamed('options'),
+          ),
+        ).called(1);
+        expect(result, equals(mockResponse));
+      });
+
+      test('should use custom pagination parameters', () async {
+        // Arrange
+        const query = 'flutter';
+        const searchRepoUrl = 'https://api.github.com/search/repositories';
+        final mockResponse = Response<dynamic>(
+          data: {'items': []},
+          statusCode: 200,
+          requestOptions: RequestOptions(path: searchRepoUrl),
+        );
+
+        when(mockEndpoints.searchRepoUrl).thenReturn(searchRepoUrl);
+        when(
+          mockDio.get(
+            any,
+            queryParameters: anyNamed('queryParameters'),
+            options: anyNamed('options'),
+          ),
+        ).thenAnswer((_) async => mockResponse);
+
+        // Act
+        final result = await githubService.searchRepos(
+          query,
+          page: 3,
+          perPage: 50,
+          sort: GitHubSort.updated,
+        );
+
+        // Assert
+        verify(
+          mockDio.get(
+            searchRepoUrl,
+            queryParameters: {
+              'q': query,
+              'page': 3,
+              'per_page': 50,
+              'sort': GitHubSort.updated,
+            },
+            options: anyNamed('options'),
+          ),
+        ).called(1);
         expect(result, equals(mockResponse));
       });
     });
