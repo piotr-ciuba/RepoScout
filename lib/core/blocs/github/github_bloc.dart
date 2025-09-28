@@ -28,14 +28,34 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
   ) async {
     _emitLoadingState(event, emit);
     try {
-      final repos = await _githubRepository.fetchPublicRepos();
+      final repos = await _githubRepository.fetchPublicRepos(
+        page: event.page,
+        perPage: event.perPage,
+      );
+
+      final List<Repo> allRepos;
+      final int currentPage;
+
+      if (event.page == 1) {
+        allRepos = repos;
+        currentPage = event.page;
+      } else {
+        // Load more
+        allRepos = [...state.repos, ...repos];
+        currentPage = event.page;
+      }
+
+      final bool hasMorePages = repos.length >= event.perPage;
+
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
           lastEvent: event,
-          repos: repos,
+          repos: allRepos,
           issues: state.issues,
           pullRequests: state.pullRequests,
+          currentPage: currentPage,
+          hasMorePages: hasMorePages,
         ),
       );
     } catch (error) {
@@ -49,14 +69,35 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
   ) async {
     _emitLoadingState(event, emit);
     try {
-      final repos = await _githubRepository.searchRepos(event.keyword);
+      final repos = await _githubRepository.searchRepos(
+        event.keyword,
+        page: event.page,
+        perPage: event.perPage,
+      );
+
+      final List<Repo> allRepos;
+      final int currentPage;
+
+      if (event.page == 1) {
+        allRepos = repos;
+        currentPage = event.page;
+      } else {
+        // Load more
+        allRepos = [...state.repos, ...repos];
+        currentPage = event.page;
+      }
+
+      final bool hasMorePages = repos.length >= event.perPage;
+
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
           lastEvent: event,
-          repos: repos,
+          repos: allRepos,
           issues: state.issues,
           pullRequests: state.pullRequests,
+          currentPage: currentPage,
+          hasMorePages: hasMorePages,
         ),
       );
     } catch (error) {
@@ -81,6 +122,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           repos: state.repos,
           issues: state.issues,
           pullRequests: state.pullRequests,
+          currentPage: state.currentPage,
+          hasMorePages: state.hasMorePages,
         ),
       );
     } catch (error) {
@@ -105,6 +148,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           repos: state.repos,
           issues: issues,
           pullRequests: state.pullRequests,
+          currentPage: state.currentPage,
+          hasMorePages: state.hasMorePages,
         ),
       );
     } catch (error) {
@@ -129,6 +174,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           repos: state.repos,
           issues: state.issues,
           pullRequests: pullRequests,
+          currentPage: state.currentPage,
+          hasMorePages: state.hasMorePages,
         ),
       );
     } catch (error) {
@@ -144,6 +191,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
         repos: state.repos,
         issues: state.issues,
         pullRequests: state.pullRequests,
+        currentPage: state.currentPage,
+        hasMorePages: state.hasMorePages,
       ),
     );
   }

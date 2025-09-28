@@ -7,15 +7,32 @@ sealed class GithubEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-final class FetchPublicReposEvent extends GithubEvent {}
+final class FetchPublicReposEvent extends GithubEvent {
+  final int page;
+  final int perPage;
+
+  const FetchPublicReposEvent({
+    this.page = 1,
+    this.perPage = 10,
+  });
+
+  @override
+  List<Object?> get props => [page, perPage];
+}
 
 final class SearchReposEvent extends GithubEvent {
   final String keyword;
+  final int page;
+  final int perPage;
 
-  const SearchReposEvent({required this.keyword});
+  const SearchReposEvent({
+    required this.keyword,
+    this.page = 1,
+    this.perPage = 10,
+  });
 
   @override
-  List<Object?> get props => [keyword];
+  List<Object?> get props => [keyword, page, perPage];
 }
 
 final class FetchRepoDetailsEvent extends GithubEvent {

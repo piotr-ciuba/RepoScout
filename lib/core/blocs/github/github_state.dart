@@ -6,6 +6,8 @@ sealed class GithubState extends Equatable {
   final List<Repo> repos;
   final List<Issue> issues;
   final List<PullRequest> pullRequests;
+  final int currentPage;
+  final bool hasMorePages;
 
   const GithubState({
     this.selectedRepo,
@@ -13,6 +15,8 @@ sealed class GithubState extends Equatable {
     this.repos = const [],
     this.issues = const [],
     this.pullRequests = const [],
+    this.currentPage = 1,
+    this.hasMorePages = true,
   });
 
   @override
@@ -22,6 +26,8 @@ sealed class GithubState extends Equatable {
     repos,
     issues,
     pullRequests,
+    currentPage,
+    hasMorePages,
   ];
 }
 
@@ -34,6 +40,8 @@ final class GithubLoading extends GithubState {
     required super.repos,
     required super.issues,
     required super.pullRequests,
+    required super.currentPage,
+    required super.hasMorePages,
   });
 }
 
@@ -44,10 +52,17 @@ final class GithubSuccess extends GithubState {
     required super.repos,
     required super.issues,
     required super.pullRequests,
+    required super.currentPage,
+    required super.hasMorePages,
   });
 }
 
 final class GithubError extends GithubState {
   final String message;
-  const GithubError({required this.message, required super.lastEvent});
+  const GithubError({
+    required this.message,
+    required super.lastEvent,
+    super.currentPage = 1,
+    super.hasMorePages = true,
+  });
 }
