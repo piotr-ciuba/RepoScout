@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:repo_scout_app/common/app_colors.dart';
 import 'package:repo_scout_app/common/app_sizes.dart';
 import 'package:repo_scout_app/common/app_text_styles.dart';
+import 'package:repo_scout_app/core/blocs/app_settings/app_settings_bloc.dart';
 import 'package:repo_scout_app/core/blocs/github/github_bloc.dart';
 import 'package:repo_scout_app/extensions/localized_context.dart';
 import 'package:repo_scout_app/models/repo/repo.dart';
@@ -45,7 +46,15 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryGrey100,
-      appBar: AppBarWithLogo(title: context.tr.appTitle),
+      appBar: AppBarWithLogo(
+        title: context.tr.appTitle,
+        actions: [
+          IconButton(
+            onPressed: _changeLanguage,
+            icon: const Icon(Icons.language),
+          ),
+        ],
+      ),
       body: Stack(
         children: [
           Column(
@@ -218,6 +227,13 @@ class _SearchPageState extends State<SearchPage> {
         );
       }
     }
+  }
+
+  void _changeLanguage() {
+    final currentLocale = Localizations.localeOf(context);
+    final newLocale = currentLocale.languageCode == 'en' ? 'pl' : 'en';
+
+    context.read<AppSettingsBloc>().add(ChangeLanguageEvent(newLocale));
   }
 
   bool _shouldShowLoadMore(List<Repo> repositories, GithubState currentState) {
