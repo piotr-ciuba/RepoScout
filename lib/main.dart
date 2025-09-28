@@ -5,9 +5,9 @@ import 'package:repo_scout_app/core/utils/injector.dart';
 import 'package:repo_scout_app/localization/generated/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
+  await configureDependencies();
   runApp(const MyApp());
 }
 

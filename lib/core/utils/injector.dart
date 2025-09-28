@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'injector.config.dart';
 
@@ -11,8 +12,8 @@ final serviceLocator = GetIt.instance;
   preferRelativeImports: true,
   asExtension: true,
 )
-void configureDependencies() {
-  serviceLocator.init();
+Future<void> configureDependencies() async {
+  await serviceLocator.init();
 }
 
 @module
@@ -26,4 +27,8 @@ abstract class RegisterModule {
 
     return dio;
   }
+
+  @preResolve
+  Future<SharedPreferences> provideSharedPrefs() =>
+      SharedPreferences.getInstance();
 }
