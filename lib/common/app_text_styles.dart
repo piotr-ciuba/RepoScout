@@ -1,95 +1,96 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 mixin AppTextStyles {
   // Body text styles
-  static final bodySmall = TextStyle(fontSize: 12, fontWeight: FontWeight.w400);
-  static final bodyMedium = TextStyle(
-    fontSize: 14,
+  static TextStyle get bodySmall => TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400);
+  static TextStyle get bodyMedium => TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
-  static final bodyLarge = TextStyle(fontSize: 16, fontWeight: FontWeight.w400);
+  static TextStyle get bodyLarge => TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400);
 
   // Title text styles
-  static final titleSmall = TextStyle(
-    fontSize: 14,
+  static TextStyle get titleSmall => TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w600,
   );
-  static final titleMedium = TextStyle(
-    fontSize: 16,
+  static TextStyle get titleMedium => TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeight.w600,
   );
-  static final titleLarge = TextStyle(
-    fontSize: 20,
+  static TextStyle get titleLarge => TextStyle(
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
   );
 
   // Subtitle text styles
-  static final subtitleSmall = TextStyle(
-    fontSize: 12,
+  static TextStyle get subtitleSmall => TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeight.w500,
   );
-  static final subtitleMedium = TextStyle(
-    fontSize: 14,
+  static TextStyle get subtitleMedium => TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w500,
   );
-  static final subtitleLarge = TextStyle(
-    fontSize: 16,
+  static TextStyle get subtitleLarge => TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
 
   // Headline text styles
-  static final headlineSmall = TextStyle(
-    fontSize: 24,
+  static TextStyle get headlineSmall => TextStyle(
+    fontSize: 24.sp,
     fontWeight: FontWeight.w700,
   );
-  static final headlineMedium = TextStyle(
-    fontSize: 28,
+  static TextStyle get headlineMedium => TextStyle(
+    fontSize: 28.sp,
     fontWeight: FontWeight.w700,
   );
-  static final headlineLarge = TextStyle(
-    fontSize: 32,
+  static TextStyle get headlineLarge => TextStyle(
+    fontSize: 32.sp,
     fontWeight: FontWeight.w700,
   );
 
   // Display text styles
-  static final displaySmall = TextStyle(
-    fontSize: 36,
+  static TextStyle get displaySmall => TextStyle(
+    fontSize: 36.sp,
     fontWeight: FontWeight.w800,
   );
-  static final displayMedium = TextStyle(
-    fontSize: 40,
+  static TextStyle get displayMedium => TextStyle(
+    fontSize: 40.sp,
     fontWeight: FontWeight.w800,
   );
-  static final displayLarge = TextStyle(
-    fontSize: 48,
+  static TextStyle get displayLarge => TextStyle(
+    fontSize: 48.sp,
     fontWeight: FontWeight.w800,
   );
 
   // Label text styles
-  static final labelSmall = TextStyle(
-    fontSize: 10,
+  static TextStyle get labelSmall => TextStyle(
+    fontSize: 10.sp,
     fontWeight: FontWeight.w600,
   );
-  static final labelMedium = TextStyle(
-    fontSize: 12,
+  static TextStyle get labelMedium => TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeight.w600,
   );
-  static final labelLarge = TextStyle(
-    fontSize: 14,
+  static TextStyle get labelLarge => TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w600,
   );
 
   // Button text styles
-  static final buttonSmall = TextStyle(
-    fontSize: 12,
+  static TextStyle get buttonSmall => TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeight.w600,
   );
-  static final buttonMedium = TextStyle(
-    fontSize: 14,
+  static TextStyle get buttonMedium => TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w600,
   );
-  static final buttonLarge = TextStyle(
-    fontSize: 16,
+  static TextStyle get buttonLarge => TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeight.w600,
   );
 }
