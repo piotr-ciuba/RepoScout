@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:repo_scout_app/common/app_colors.dart';
 import 'package:repo_scout_app/core/blocs/navigation_bar/navigation_bar_bloc.dart';
 import 'package:repo_scout_app/extensions/localized_context.dart';
-import 'package:repo_scout_app/view/pages/repository_search_page.dart';
+import 'package:repo_scout_app/view/pages/search_page.dart';
 import 'package:repo_scout_app/view/pages/favorites_page.dart';
-import 'package:repo_scout_app/view/pages/random_repository_page.dart';
+import 'package:repo_scout_app/view/pages/discover_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,11 +21,7 @@ class HomePage extends StatelessWidget {
         return Scaffold(
           body: IndexedStack(
             index: selectedIndex,
-            children: const [
-              RepositorySearchPage(),
-              FavoritesPage(),
-              RandomRepositoryPage(),
-            ],
+            children: const [SearchPage(), FavoritesPage(), DiscoverPage()],
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: selectedIndex,
