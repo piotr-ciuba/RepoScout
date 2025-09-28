@@ -8,21 +8,21 @@ part 'milestone.g.dart';
 abstract class Milestone with _$Milestone {
   factory Milestone({
     required String? url,
-    required String? htmlUrl,
-    required String? labelsUrl,
+    @JsonKey(name: 'html_url') required String? htmlUrl,
+    @JsonKey(name: 'labels_url') required String? labelsUrl,
     required int? id,
-    required String? nodeId,
+    @JsonKey(name: 'node_id') required String? nodeId,
     required int? number,
     required String? state,
     required String? title,
     required String? description,
     required Creator? creator,
-    required int? openIssues,
-    required int? closedIssues,
-    required String? createdAt,
-    required String? updatedAt,
-    required String? closedAt,
-    required String? dueOn,
+    @JsonKey(name: 'open_issues') required int? openIssues,
+    @JsonKey(name: 'closed_issues') required int? closedIssues,
+    @JsonKey(name: 'created_at') required String? createdAt,
+    @JsonKey(name: 'updated_at') required String? updatedAt,
+    @JsonKey(name: 'closed_at') required String? closedAt,
+    @JsonKey(name: 'due_on') required String? dueOn,
   }) = _Milestone;
 
   factory Milestone.fromJson(Map<String, dynamic> json) =>

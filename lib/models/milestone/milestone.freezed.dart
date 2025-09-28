@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Milestone {
 
- String? get url; String? get htmlUrl; String? get labelsUrl; int? get id; String? get nodeId; int? get number; String? get state; String? get title; String? get description; Creator? get creator; int? get openIssues; int? get closedIssues; String? get createdAt; String? get updatedAt; String? get closedAt; String? get dueOn;
+ String? get url;@JsonKey(name: 'html_url') String? get htmlUrl;@JsonKey(name: 'labels_url') String? get labelsUrl; int? get id;@JsonKey(name: 'node_id') String? get nodeId; int? get number; String? get state; String? get title; String? get description; Creator? get creator;@JsonKey(name: 'open_issues') int? get openIssues;@JsonKey(name: 'closed_issues') int? get closedIssues;@JsonKey(name: 'created_at') String? get createdAt;@JsonKey(name: 'updated_at') String? get updatedAt;@JsonKey(name: 'closed_at') String? get closedAt;@JsonKey(name: 'due_on') String? get dueOn;
 /// Create a copy of Milestone
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MilestoneCopyWith<$Res>  {
   factory $MilestoneCopyWith(Milestone value, $Res Function(Milestone) _then) = _$MilestoneCopyWithImpl;
 @useResult
 $Res call({
- String? url, String? htmlUrl, String? labelsUrl, int? id, String? nodeId, int? number, String? state, String? title, String? description, Creator? creator, int? openIssues, int? closedIssues, String? createdAt, String? updatedAt, String? closedAt, String? dueOn
+ String? url,@JsonKey(name: 'html_url') String? htmlUrl,@JsonKey(name: 'labels_url') String? labelsUrl, int? id,@JsonKey(name: 'node_id') String? nodeId, int? number, String? state, String? title, String? description, Creator? creator,@JsonKey(name: 'open_issues') int? openIssues,@JsonKey(name: 'closed_issues') int? closedIssues,@JsonKey(name: 'created_at') String? createdAt,@JsonKey(name: 'updated_at') String? updatedAt,@JsonKey(name: 'closed_at') String? closedAt,@JsonKey(name: 'due_on') String? dueOn
 });
 
 
@@ -180,7 +180,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  String? htmlUrl,  String? labelsUrl,  int? id,  String? nodeId,  int? number,  String? state,  String? title,  String? description,  Creator? creator,  int? openIssues,  int? closedIssues,  String? createdAt,  String? updatedAt,  String? closedAt,  String? dueOn)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'labels_url')  String? labelsUrl,  int? id, @JsonKey(name: 'node_id')  String? nodeId,  int? number,  String? state,  String? title,  String? description,  Creator? creator, @JsonKey(name: 'open_issues')  int? openIssues, @JsonKey(name: 'closed_issues')  int? closedIssues, @JsonKey(name: 'created_at')  String? createdAt, @JsonKey(name: 'updated_at')  String? updatedAt, @JsonKey(name: 'closed_at')  String? closedAt, @JsonKey(name: 'due_on')  String? dueOn)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Milestone() when $default != null:
 return $default(_that.url,_that.htmlUrl,_that.labelsUrl,_that.id,_that.nodeId,_that.number,_that.state,_that.title,_that.description,_that.creator,_that.openIssues,_that.closedIssues,_that.createdAt,_that.updatedAt,_that.closedAt,_that.dueOn);case _:
@@ -201,7 +201,7 @@ return $default(_that.url,_that.htmlUrl,_that.labelsUrl,_that.id,_that.nodeId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  String? htmlUrl,  String? labelsUrl,  int? id,  String? nodeId,  int? number,  String? state,  String? title,  String? description,  Creator? creator,  int? openIssues,  int? closedIssues,  String? createdAt,  String? updatedAt,  String? closedAt,  String? dueOn)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'labels_url')  String? labelsUrl,  int? id, @JsonKey(name: 'node_id')  String? nodeId,  int? number,  String? state,  String? title,  String? description,  Creator? creator, @JsonKey(name: 'open_issues')  int? openIssues, @JsonKey(name: 'closed_issues')  int? closedIssues, @JsonKey(name: 'created_at')  String? createdAt, @JsonKey(name: 'updated_at')  String? updatedAt, @JsonKey(name: 'closed_at')  String? closedAt, @JsonKey(name: 'due_on')  String? dueOn)  $default,) {final _that = this;
 switch (_that) {
 case _Milestone():
 return $default(_that.url,_that.htmlUrl,_that.labelsUrl,_that.id,_that.nodeId,_that.number,_that.state,_that.title,_that.description,_that.creator,_that.openIssues,_that.closedIssues,_that.createdAt,_that.updatedAt,_that.closedAt,_that.dueOn);case _:
@@ -221,7 +221,7 @@ return $default(_that.url,_that.htmlUrl,_that.labelsUrl,_that.id,_that.nodeId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  String? htmlUrl,  String? labelsUrl,  int? id,  String? nodeId,  int? number,  String? state,  String? title,  String? description,  Creator? creator,  int? openIssues,  int? closedIssues,  String? createdAt,  String? updatedAt,  String? closedAt,  String? dueOn)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'labels_url')  String? labelsUrl,  int? id, @JsonKey(name: 'node_id')  String? nodeId,  int? number,  String? state,  String? title,  String? description,  Creator? creator, @JsonKey(name: 'open_issues')  int? openIssues, @JsonKey(name: 'closed_issues')  int? closedIssues, @JsonKey(name: 'created_at')  String? createdAt, @JsonKey(name: 'updated_at')  String? updatedAt, @JsonKey(name: 'closed_at')  String? closedAt, @JsonKey(name: 'due_on')  String? dueOn)?  $default,) {final _that = this;
 switch (_that) {
 case _Milestone() when $default != null:
 return $default(_that.url,_that.htmlUrl,_that.labelsUrl,_that.id,_that.nodeId,_that.number,_that.state,_that.title,_that.description,_that.creator,_that.openIssues,_that.closedIssues,_that.createdAt,_that.updatedAt,_that.closedAt,_that.dueOn);case _:
@@ -236,25 +236,25 @@ return $default(_that.url,_that.htmlUrl,_that.labelsUrl,_that.id,_that.nodeId,_t
 @JsonSerializable()
 
 class _Milestone implements Milestone {
-   _Milestone({required this.url, required this.htmlUrl, required this.labelsUrl, required this.id, required this.nodeId, required this.number, required this.state, required this.title, required this.description, required this.creator, required this.openIssues, required this.closedIssues, required this.createdAt, required this.updatedAt, required this.closedAt, required this.dueOn});
+   _Milestone({required this.url, @JsonKey(name: 'html_url') required this.htmlUrl, @JsonKey(name: 'labels_url') required this.labelsUrl, required this.id, @JsonKey(name: 'node_id') required this.nodeId, required this.number, required this.state, required this.title, required this.description, required this.creator, @JsonKey(name: 'open_issues') required this.openIssues, @JsonKey(name: 'closed_issues') required this.closedIssues, @JsonKey(name: 'created_at') required this.createdAt, @JsonKey(name: 'updated_at') required this.updatedAt, @JsonKey(name: 'closed_at') required this.closedAt, @JsonKey(name: 'due_on') required this.dueOn});
   factory _Milestone.fromJson(Map<String, dynamic> json) => _$MilestoneFromJson(json);
 
 @override final  String? url;
-@override final  String? htmlUrl;
-@override final  String? labelsUrl;
+@override@JsonKey(name: 'html_url') final  String? htmlUrl;
+@override@JsonKey(name: 'labels_url') final  String? labelsUrl;
 @override final  int? id;
-@override final  String? nodeId;
+@override@JsonKey(name: 'node_id') final  String? nodeId;
 @override final  int? number;
 @override final  String? state;
 @override final  String? title;
 @override final  String? description;
 @override final  Creator? creator;
-@override final  int? openIssues;
-@override final  int? closedIssues;
-@override final  String? createdAt;
-@override final  String? updatedAt;
-@override final  String? closedAt;
-@override final  String? dueOn;
+@override@JsonKey(name: 'open_issues') final  int? openIssues;
+@override@JsonKey(name: 'closed_issues') final  int? closedIssues;
+@override@JsonKey(name: 'created_at') final  String? createdAt;
+@override@JsonKey(name: 'updated_at') final  String? updatedAt;
+@override@JsonKey(name: 'closed_at') final  String? closedAt;
+@override@JsonKey(name: 'due_on') final  String? dueOn;
 
 /// Create a copy of Milestone
 /// with the given fields replaced by the non-null parameter values.
@@ -289,7 +289,7 @@ abstract mixin class _$MilestoneCopyWith<$Res> implements $MilestoneCopyWith<$Re
   factory _$MilestoneCopyWith(_Milestone value, $Res Function(_Milestone) _then) = __$MilestoneCopyWithImpl;
 @override @useResult
 $Res call({
- String? url, String? htmlUrl, String? labelsUrl, int? id, String? nodeId, int? number, String? state, String? title, String? description, Creator? creator, int? openIssues, int? closedIssues, String? createdAt, String? updatedAt, String? closedAt, String? dueOn
+ String? url,@JsonKey(name: 'html_url') String? htmlUrl,@JsonKey(name: 'labels_url') String? labelsUrl, int? id,@JsonKey(name: 'node_id') String? nodeId, int? number, String? state, String? title, String? description, Creator? creator,@JsonKey(name: 'open_issues') int? openIssues,@JsonKey(name: 'closed_issues') int? closedIssues,@JsonKey(name: 'created_at') String? createdAt,@JsonKey(name: 'updated_at') String? updatedAt,@JsonKey(name: 'closed_at') String? closedAt,@JsonKey(name: 'due_on') String? dueOn
 });
 
 

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Owner {
 
- String? get login; int? get id; String? get nodeId; String? get avatarUrl; String? get gravatarId; String? get url; String? get htmlUrl; String? get followersUrl; String? get followingUrl; String? get gistsUrl; String? get starredUrl; String? get subscriptionsUrl; String? get organizationsUrl; String? get reposUrl; String? get eventsUrl; String? get receivedEventsUrl; String? get type; bool? get siteAdmin;
+ String? get login; int? get id;@JsonKey(name: 'node_id') String? get nodeId;@JsonKey(name: 'avatar_url') String? get avatarUrl;@JsonKey(name: 'gravatar_id') String? get gravatarId; String? get url;@JsonKey(name: 'html_url') String? get htmlUrl;@JsonKey(name: 'followers_url') String? get followersUrl;@JsonKey(name: 'following_url') String? get followingUrl;@JsonKey(name: 'gists_url') String? get gistsUrl;@JsonKey(name: 'starred_url') String? get starredUrl;@JsonKey(name: 'subscriptions_url') String? get subscriptionsUrl;@JsonKey(name: 'organizations_url') String? get organizationsUrl;@JsonKey(name: 'repos_url') String? get reposUrl;@JsonKey(name: 'events_url') String? get eventsUrl;@JsonKey(name: 'received_events_url') String? get receivedEventsUrl; String? get type;@JsonKey(name: 'site_admin') bool? get siteAdmin;
 /// Create a copy of Owner
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $OwnerCopyWith<$Res>  {
   factory $OwnerCopyWith(Owner value, $Res Function(Owner) _then) = _$OwnerCopyWithImpl;
 @useResult
 $Res call({
- String? login, int? id, String? nodeId, String? avatarUrl, String? gravatarId, String? url, String? htmlUrl, String? followersUrl, String? followingUrl, String? gistsUrl, String? starredUrl, String? subscriptionsUrl, String? organizationsUrl, String? reposUrl, String? eventsUrl, String? receivedEventsUrl, String? type, bool? siteAdmin
+ String? login, int? id,@JsonKey(name: 'node_id') String? nodeId,@JsonKey(name: 'avatar_url') String? avatarUrl,@JsonKey(name: 'gravatar_id') String? gravatarId, String? url,@JsonKey(name: 'html_url') String? htmlUrl,@JsonKey(name: 'followers_url') String? followersUrl,@JsonKey(name: 'following_url') String? followingUrl,@JsonKey(name: 'gists_url') String? gistsUrl,@JsonKey(name: 'starred_url') String? starredUrl,@JsonKey(name: 'subscriptions_url') String? subscriptionsUrl,@JsonKey(name: 'organizations_url') String? organizationsUrl,@JsonKey(name: 'repos_url') String? reposUrl,@JsonKey(name: 'events_url') String? eventsUrl,@JsonKey(name: 'received_events_url') String? receivedEventsUrl, String? type,@JsonKey(name: 'site_admin') bool? siteAdmin
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? login,  int? id,  String? nodeId,  String? avatarUrl,  String? gravatarId,  String? url,  String? htmlUrl,  String? followersUrl,  String? followingUrl,  String? gistsUrl,  String? starredUrl,  String? subscriptionsUrl,  String? organizationsUrl,  String? reposUrl,  String? eventsUrl,  String? receivedEventsUrl,  String? type,  bool? siteAdmin)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? login,  int? id, @JsonKey(name: 'node_id')  String? nodeId, @JsonKey(name: 'avatar_url')  String? avatarUrl, @JsonKey(name: 'gravatar_id')  String? gravatarId,  String? url, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'followers_url')  String? followersUrl, @JsonKey(name: 'following_url')  String? followingUrl, @JsonKey(name: 'gists_url')  String? gistsUrl, @JsonKey(name: 'starred_url')  String? starredUrl, @JsonKey(name: 'subscriptions_url')  String? subscriptionsUrl, @JsonKey(name: 'organizations_url')  String? organizationsUrl, @JsonKey(name: 'repos_url')  String? reposUrl, @JsonKey(name: 'events_url')  String? eventsUrl, @JsonKey(name: 'received_events_url')  String? receivedEventsUrl,  String? type, @JsonKey(name: 'site_admin')  bool? siteAdmin)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Owner() when $default != null:
 return $default(_that.login,_that.id,_that.nodeId,_that.avatarUrl,_that.gravatarId,_that.url,_that.htmlUrl,_that.followersUrl,_that.followingUrl,_that.gistsUrl,_that.starredUrl,_that.subscriptionsUrl,_that.organizationsUrl,_that.reposUrl,_that.eventsUrl,_that.receivedEventsUrl,_that.type,_that.siteAdmin);case _:
@@ -191,7 +191,7 @@ return $default(_that.login,_that.id,_that.nodeId,_that.avatarUrl,_that.gravatar
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? login,  int? id,  String? nodeId,  String? avatarUrl,  String? gravatarId,  String? url,  String? htmlUrl,  String? followersUrl,  String? followingUrl,  String? gistsUrl,  String? starredUrl,  String? subscriptionsUrl,  String? organizationsUrl,  String? reposUrl,  String? eventsUrl,  String? receivedEventsUrl,  String? type,  bool? siteAdmin)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? login,  int? id, @JsonKey(name: 'node_id')  String? nodeId, @JsonKey(name: 'avatar_url')  String? avatarUrl, @JsonKey(name: 'gravatar_id')  String? gravatarId,  String? url, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'followers_url')  String? followersUrl, @JsonKey(name: 'following_url')  String? followingUrl, @JsonKey(name: 'gists_url')  String? gistsUrl, @JsonKey(name: 'starred_url')  String? starredUrl, @JsonKey(name: 'subscriptions_url')  String? subscriptionsUrl, @JsonKey(name: 'organizations_url')  String? organizationsUrl, @JsonKey(name: 'repos_url')  String? reposUrl, @JsonKey(name: 'events_url')  String? eventsUrl, @JsonKey(name: 'received_events_url')  String? receivedEventsUrl,  String? type, @JsonKey(name: 'site_admin')  bool? siteAdmin)  $default,) {final _that = this;
 switch (_that) {
 case _Owner():
 return $default(_that.login,_that.id,_that.nodeId,_that.avatarUrl,_that.gravatarId,_that.url,_that.htmlUrl,_that.followersUrl,_that.followingUrl,_that.gistsUrl,_that.starredUrl,_that.subscriptionsUrl,_that.organizationsUrl,_that.reposUrl,_that.eventsUrl,_that.receivedEventsUrl,_that.type,_that.siteAdmin);case _:
@@ -211,7 +211,7 @@ return $default(_that.login,_that.id,_that.nodeId,_that.avatarUrl,_that.gravatar
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? login,  int? id,  String? nodeId,  String? avatarUrl,  String? gravatarId,  String? url,  String? htmlUrl,  String? followersUrl,  String? followingUrl,  String? gistsUrl,  String? starredUrl,  String? subscriptionsUrl,  String? organizationsUrl,  String? reposUrl,  String? eventsUrl,  String? receivedEventsUrl,  String? type,  bool? siteAdmin)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? login,  int? id, @JsonKey(name: 'node_id')  String? nodeId, @JsonKey(name: 'avatar_url')  String? avatarUrl, @JsonKey(name: 'gravatar_id')  String? gravatarId,  String? url, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'followers_url')  String? followersUrl, @JsonKey(name: 'following_url')  String? followingUrl, @JsonKey(name: 'gists_url')  String? gistsUrl, @JsonKey(name: 'starred_url')  String? starredUrl, @JsonKey(name: 'subscriptions_url')  String? subscriptionsUrl, @JsonKey(name: 'organizations_url')  String? organizationsUrl, @JsonKey(name: 'repos_url')  String? reposUrl, @JsonKey(name: 'events_url')  String? eventsUrl, @JsonKey(name: 'received_events_url')  String? receivedEventsUrl,  String? type, @JsonKey(name: 'site_admin')  bool? siteAdmin)?  $default,) {final _that = this;
 switch (_that) {
 case _Owner() when $default != null:
 return $default(_that.login,_that.id,_that.nodeId,_that.avatarUrl,_that.gravatarId,_that.url,_that.htmlUrl,_that.followersUrl,_that.followingUrl,_that.gistsUrl,_that.starredUrl,_that.subscriptionsUrl,_that.organizationsUrl,_that.reposUrl,_that.eventsUrl,_that.receivedEventsUrl,_that.type,_that.siteAdmin);case _:
@@ -226,27 +226,27 @@ return $default(_that.login,_that.id,_that.nodeId,_that.avatarUrl,_that.gravatar
 @JsonSerializable()
 
 class _Owner implements Owner {
-   _Owner({required this.login, required this.id, required this.nodeId, required this.avatarUrl, required this.gravatarId, required this.url, required this.htmlUrl, required this.followersUrl, required this.followingUrl, required this.gistsUrl, required this.starredUrl, required this.subscriptionsUrl, required this.organizationsUrl, required this.reposUrl, required this.eventsUrl, required this.receivedEventsUrl, required this.type, required this.siteAdmin});
+   _Owner({required this.login, required this.id, @JsonKey(name: 'node_id') required this.nodeId, @JsonKey(name: 'avatar_url') required this.avatarUrl, @JsonKey(name: 'gravatar_id') required this.gravatarId, required this.url, @JsonKey(name: 'html_url') required this.htmlUrl, @JsonKey(name: 'followers_url') required this.followersUrl, @JsonKey(name: 'following_url') required this.followingUrl, @JsonKey(name: 'gists_url') required this.gistsUrl, @JsonKey(name: 'starred_url') required this.starredUrl, @JsonKey(name: 'subscriptions_url') required this.subscriptionsUrl, @JsonKey(name: 'organizations_url') required this.organizationsUrl, @JsonKey(name: 'repos_url') required this.reposUrl, @JsonKey(name: 'events_url') required this.eventsUrl, @JsonKey(name: 'received_events_url') required this.receivedEventsUrl, required this.type, @JsonKey(name: 'site_admin') required this.siteAdmin});
   factory _Owner.fromJson(Map<String, dynamic> json) => _$OwnerFromJson(json);
 
 @override final  String? login;
 @override final  int? id;
-@override final  String? nodeId;
-@override final  String? avatarUrl;
-@override final  String? gravatarId;
+@override@JsonKey(name: 'node_id') final  String? nodeId;
+@override@JsonKey(name: 'avatar_url') final  String? avatarUrl;
+@override@JsonKey(name: 'gravatar_id') final  String? gravatarId;
 @override final  String? url;
-@override final  String? htmlUrl;
-@override final  String? followersUrl;
-@override final  String? followingUrl;
-@override final  String? gistsUrl;
-@override final  String? starredUrl;
-@override final  String? subscriptionsUrl;
-@override final  String? organizationsUrl;
-@override final  String? reposUrl;
-@override final  String? eventsUrl;
-@override final  String? receivedEventsUrl;
+@override@JsonKey(name: 'html_url') final  String? htmlUrl;
+@override@JsonKey(name: 'followers_url') final  String? followersUrl;
+@override@JsonKey(name: 'following_url') final  String? followingUrl;
+@override@JsonKey(name: 'gists_url') final  String? gistsUrl;
+@override@JsonKey(name: 'starred_url') final  String? starredUrl;
+@override@JsonKey(name: 'subscriptions_url') final  String? subscriptionsUrl;
+@override@JsonKey(name: 'organizations_url') final  String? organizationsUrl;
+@override@JsonKey(name: 'repos_url') final  String? reposUrl;
+@override@JsonKey(name: 'events_url') final  String? eventsUrl;
+@override@JsonKey(name: 'received_events_url') final  String? receivedEventsUrl;
 @override final  String? type;
-@override final  bool? siteAdmin;
+@override@JsonKey(name: 'site_admin') final  bool? siteAdmin;
 
 /// Create a copy of Owner
 /// with the given fields replaced by the non-null parameter values.
@@ -281,7 +281,7 @@ abstract mixin class _$OwnerCopyWith<$Res> implements $OwnerCopyWith<$Res> {
   factory _$OwnerCopyWith(_Owner value, $Res Function(_Owner) _then) = __$OwnerCopyWithImpl;
 @override @useResult
 $Res call({
- String? login, int? id, String? nodeId, String? avatarUrl, String? gravatarId, String? url, String? htmlUrl, String? followersUrl, String? followingUrl, String? gistsUrl, String? starredUrl, String? subscriptionsUrl, String? organizationsUrl, String? reposUrl, String? eventsUrl, String? receivedEventsUrl, String? type, bool? siteAdmin
+ String? login, int? id,@JsonKey(name: 'node_id') String? nodeId,@JsonKey(name: 'avatar_url') String? avatarUrl,@JsonKey(name: 'gravatar_id') String? gravatarId, String? url,@JsonKey(name: 'html_url') String? htmlUrl,@JsonKey(name: 'followers_url') String? followersUrl,@JsonKey(name: 'following_url') String? followingUrl,@JsonKey(name: 'gists_url') String? gistsUrl,@JsonKey(name: 'starred_url') String? starredUrl,@JsonKey(name: 'subscriptions_url') String? subscriptionsUrl,@JsonKey(name: 'organizations_url') String? organizationsUrl,@JsonKey(name: 'repos_url') String? reposUrl,@JsonKey(name: 'events_url') String? eventsUrl,@JsonKey(name: 'received_events_url') String? receivedEventsUrl, String? type,@JsonKey(name: 'site_admin') bool? siteAdmin
 });
 
 

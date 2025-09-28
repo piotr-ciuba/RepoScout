@@ -7,12 +7,12 @@ part 'label.g.dart';
 abstract class Label with _$Label {
   factory Label({
     required int? id,
-    required String? nodeId,
+    @JsonKey(name: 'node_id') required String? nodeId,
     required String? url,
     required String? name,
     required String? description,
     required String? color,
-    required bool? labelDefault,
+    @JsonKey(name: 'default') required bool? labelDefault,
   }) = _Label;
 
   factory Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);

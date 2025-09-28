@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Label {
 
- int? get id; String? get nodeId; String? get url; String? get name; String? get description; String? get color; bool? get labelDefault;
+ int? get id;@JsonKey(name: 'node_id') String? get nodeId; String? get url; String? get name; String? get description; String? get color;@JsonKey(name: 'default') bool? get labelDefault;
 /// Create a copy of Label
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LabelCopyWith<$Res>  {
   factory $LabelCopyWith(Label value, $Res Function(Label) _then) = _$LabelCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? nodeId, String? url, String? name, String? description, String? color, bool? labelDefault
+ int? id,@JsonKey(name: 'node_id') String? nodeId, String? url, String? name, String? description, String? color,@JsonKey(name: 'default') bool? labelDefault
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? nodeId,  String? url,  String? name,  String? description,  String? color,  bool? labelDefault)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'node_id')  String? nodeId,  String? url,  String? name,  String? description,  String? color, @JsonKey(name: 'default')  bool? labelDefault)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Label() when $default != null:
 return $default(_that.id,_that.nodeId,_that.url,_that.name,_that.description,_that.color,_that.labelDefault);case _:
@@ -180,7 +180,7 @@ return $default(_that.id,_that.nodeId,_that.url,_that.name,_that.description,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? nodeId,  String? url,  String? name,  String? description,  String? color,  bool? labelDefault)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'node_id')  String? nodeId,  String? url,  String? name,  String? description,  String? color, @JsonKey(name: 'default')  bool? labelDefault)  $default,) {final _that = this;
 switch (_that) {
 case _Label():
 return $default(_that.id,_that.nodeId,_that.url,_that.name,_that.description,_that.color,_that.labelDefault);case _:
@@ -200,7 +200,7 @@ return $default(_that.id,_that.nodeId,_that.url,_that.name,_that.description,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? nodeId,  String? url,  String? name,  String? description,  String? color,  bool? labelDefault)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(name: 'node_id')  String? nodeId,  String? url,  String? name,  String? description,  String? color, @JsonKey(name: 'default')  bool? labelDefault)?  $default,) {final _that = this;
 switch (_that) {
 case _Label() when $default != null:
 return $default(_that.id,_that.nodeId,_that.url,_that.name,_that.description,_that.color,_that.labelDefault);case _:
@@ -215,16 +215,16 @@ return $default(_that.id,_that.nodeId,_that.url,_that.name,_that.description,_th
 @JsonSerializable()
 
 class _Label implements Label {
-   _Label({required this.id, required this.nodeId, required this.url, required this.name, required this.description, required this.color, required this.labelDefault});
+   _Label({required this.id, @JsonKey(name: 'node_id') required this.nodeId, required this.url, required this.name, required this.description, required this.color, @JsonKey(name: 'default') required this.labelDefault});
   factory _Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);
 
 @override final  int? id;
-@override final  String? nodeId;
+@override@JsonKey(name: 'node_id') final  String? nodeId;
 @override final  String? url;
 @override final  String? name;
 @override final  String? description;
 @override final  String? color;
-@override final  bool? labelDefault;
+@override@JsonKey(name: 'default') final  bool? labelDefault;
 
 /// Create a copy of Label
 /// with the given fields replaced by the non-null parameter values.
@@ -259,7 +259,7 @@ abstract mixin class _$LabelCopyWith<$Res> implements $LabelCopyWith<$Res> {
   factory _$LabelCopyWith(_Label value, $Res Function(_Label) _then) = __$LabelCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? nodeId, String? url, String? name, String? description, String? color, bool? labelDefault
+ int? id,@JsonKey(name: 'node_id') String? nodeId, String? url, String? name, String? description, String? color,@JsonKey(name: 'default') bool? labelDefault
 });
 
 

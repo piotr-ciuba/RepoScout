@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PullRequest {
 
- String? get url; int? get id; String? get nodeId; String? get htmlUrl; String? get diffUrl; String? get patchUrl; String? get issueUrl; String? get commitsUrl; String? get reviewCommentsUrl; String? get reviewCommentUrl; String? get commentsUrl; String? get statusesUrl; int? get number; String? get state; bool? get locked; String? get title; User? get user; String? get body; List<Label>? get labels; Milestone? get milestone; String? get activeLockReason; String? get createdAt; String? get updatedAt; String? get closedAt; String? get mergedAt; String? get mergeCommitSha; Assignee? get assignee; List<Assignee>? get assignees; List<RequestedReviewer>? get requestedReviewers; List<RequestedTeam>? get requestedTeams; Head? get head; Base? get base; Links? get links; String? get authorAssociation; dynamic get autoMerge; bool? get draft;
+ String? get url; int? get id;@JsonKey(name: 'node_id') String? get nodeId;@JsonKey(name: 'html_url') String? get htmlUrl;@JsonKey(name: 'diff_url') String? get diffUrl;@JsonKey(name: 'patch_url') String? get patchUrl;@JsonKey(name: 'issue_url') String? get issueUrl;@JsonKey(name: 'commits_url') String? get commitsUrl;@JsonKey(name: 'review_comments_url') String? get reviewCommentsUrl;@JsonKey(name: 'review_comment_url') String? get reviewCommentUrl;@JsonKey(name: 'comments_url') String? get commentsUrl;@JsonKey(name: 'statuses_url') String? get statusesUrl; int? get number; String? get state; bool? get locked; String? get title; User? get user; String? get body; List<Label>? get labels; Milestone? get milestone;@JsonKey(name: 'active_lock_reason') String? get activeLockReason;@JsonKey(name: 'created_at') String? get createdAt;@JsonKey(name: 'updated_at') String? get updatedAt;@JsonKey(name: 'closed_at') String? get closedAt;@JsonKey(name: 'merged_at') String? get mergedAt;@JsonKey(name: 'merge_commit_sha') String? get mergeCommitSha; Assignee? get assignee; List<Assignee>? get assignees;@JsonKey(name: 'requested_reviewers') List<RequestedReviewer>? get requestedReviewers;@JsonKey(name: 'requested_teams') List<RequestedTeam>? get requestedTeams; Head? get head; Base? get base; Links? get links;@JsonKey(name: 'author_association') String? get authorAssociation;@JsonKey(name: 'auto_merge') dynamic get autoMerge; bool? get draft;
 /// Create a copy of PullRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $PullRequestCopyWith<$Res>  {
   factory $PullRequestCopyWith(PullRequest value, $Res Function(PullRequest) _then) = _$PullRequestCopyWithImpl;
 @useResult
 $Res call({
- String? url, int? id, String? nodeId, String? htmlUrl, String? diffUrl, String? patchUrl, String? issueUrl, String? commitsUrl, String? reviewCommentsUrl, String? reviewCommentUrl, String? commentsUrl, String? statusesUrl, int? number, String? state, bool? locked, String? title, User? user, String? body, List<Label>? labels, Milestone? milestone, String? activeLockReason, String? createdAt, String? updatedAt, String? closedAt, String? mergedAt, String? mergeCommitSha, Assignee? assignee, List<Assignee>? assignees, List<RequestedReviewer>? requestedReviewers, List<RequestedTeam>? requestedTeams, Head? head, Base? base, Links? links, String? authorAssociation, dynamic autoMerge, bool? draft
+ String? url, int? id,@JsonKey(name: 'node_id') String? nodeId,@JsonKey(name: 'html_url') String? htmlUrl,@JsonKey(name: 'diff_url') String? diffUrl,@JsonKey(name: 'patch_url') String? patchUrl,@JsonKey(name: 'issue_url') String? issueUrl,@JsonKey(name: 'commits_url') String? commitsUrl,@JsonKey(name: 'review_comments_url') String? reviewCommentsUrl,@JsonKey(name: 'review_comment_url') String? reviewCommentUrl,@JsonKey(name: 'comments_url') String? commentsUrl,@JsonKey(name: 'statuses_url') String? statusesUrl, int? number, String? state, bool? locked, String? title, User? user, String? body, List<Label>? labels, Milestone? milestone,@JsonKey(name: 'active_lock_reason') String? activeLockReason,@JsonKey(name: 'created_at') String? createdAt,@JsonKey(name: 'updated_at') String? updatedAt,@JsonKey(name: 'closed_at') String? closedAt,@JsonKey(name: 'merged_at') String? mergedAt,@JsonKey(name: 'merge_commit_sha') String? mergeCommitSha, Assignee? assignee, List<Assignee>? assignees,@JsonKey(name: 'requested_reviewers') List<RequestedReviewer>? requestedReviewers,@JsonKey(name: 'requested_teams') List<RequestedTeam>? requestedTeams, Head? head, Base? base, Links? links,@JsonKey(name: 'author_association') String? authorAssociation,@JsonKey(name: 'auto_merge') dynamic autoMerge, bool? draft
 });
 
 
@@ -260,7 +260,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  int? id,  String? nodeId,  String? htmlUrl,  String? diffUrl,  String? patchUrl,  String? issueUrl,  String? commitsUrl,  String? reviewCommentsUrl,  String? reviewCommentUrl,  String? commentsUrl,  String? statusesUrl,  int? number,  String? state,  bool? locked,  String? title,  User? user,  String? body,  List<Label>? labels,  Milestone? milestone,  String? activeLockReason,  String? createdAt,  String? updatedAt,  String? closedAt,  String? mergedAt,  String? mergeCommitSha,  Assignee? assignee,  List<Assignee>? assignees,  List<RequestedReviewer>? requestedReviewers,  List<RequestedTeam>? requestedTeams,  Head? head,  Base? base,  Links? links,  String? authorAssociation,  dynamic autoMerge,  bool? draft)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? url,  int? id, @JsonKey(name: 'node_id')  String? nodeId, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'diff_url')  String? diffUrl, @JsonKey(name: 'patch_url')  String? patchUrl, @JsonKey(name: 'issue_url')  String? issueUrl, @JsonKey(name: 'commits_url')  String? commitsUrl, @JsonKey(name: 'review_comments_url')  String? reviewCommentsUrl, @JsonKey(name: 'review_comment_url')  String? reviewCommentUrl, @JsonKey(name: 'comments_url')  String? commentsUrl, @JsonKey(name: 'statuses_url')  String? statusesUrl,  int? number,  String? state,  bool? locked,  String? title,  User? user,  String? body,  List<Label>? labels,  Milestone? milestone, @JsonKey(name: 'active_lock_reason')  String? activeLockReason, @JsonKey(name: 'created_at')  String? createdAt, @JsonKey(name: 'updated_at')  String? updatedAt, @JsonKey(name: 'closed_at')  String? closedAt, @JsonKey(name: 'merged_at')  String? mergedAt, @JsonKey(name: 'merge_commit_sha')  String? mergeCommitSha,  Assignee? assignee,  List<Assignee>? assignees, @JsonKey(name: 'requested_reviewers')  List<RequestedReviewer>? requestedReviewers, @JsonKey(name: 'requested_teams')  List<RequestedTeam>? requestedTeams,  Head? head,  Base? base,  Links? links, @JsonKey(name: 'author_association')  String? authorAssociation, @JsonKey(name: 'auto_merge')  dynamic autoMerge,  bool? draft)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PullRequest() when $default != null:
 return $default(_that.url,_that.id,_that.nodeId,_that.htmlUrl,_that.diffUrl,_that.patchUrl,_that.issueUrl,_that.commitsUrl,_that.reviewCommentsUrl,_that.reviewCommentUrl,_that.commentsUrl,_that.statusesUrl,_that.number,_that.state,_that.locked,_that.title,_that.user,_that.body,_that.labels,_that.milestone,_that.activeLockReason,_that.createdAt,_that.updatedAt,_that.closedAt,_that.mergedAt,_that.mergeCommitSha,_that.assignee,_that.assignees,_that.requestedReviewers,_that.requestedTeams,_that.head,_that.base,_that.links,_that.authorAssociation,_that.autoMerge,_that.draft);case _:
@@ -281,7 +281,7 @@ return $default(_that.url,_that.id,_that.nodeId,_that.htmlUrl,_that.diffUrl,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  int? id,  String? nodeId,  String? htmlUrl,  String? diffUrl,  String? patchUrl,  String? issueUrl,  String? commitsUrl,  String? reviewCommentsUrl,  String? reviewCommentUrl,  String? commentsUrl,  String? statusesUrl,  int? number,  String? state,  bool? locked,  String? title,  User? user,  String? body,  List<Label>? labels,  Milestone? milestone,  String? activeLockReason,  String? createdAt,  String? updatedAt,  String? closedAt,  String? mergedAt,  String? mergeCommitSha,  Assignee? assignee,  List<Assignee>? assignees,  List<RequestedReviewer>? requestedReviewers,  List<RequestedTeam>? requestedTeams,  Head? head,  Base? base,  Links? links,  String? authorAssociation,  dynamic autoMerge,  bool? draft)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? url,  int? id, @JsonKey(name: 'node_id')  String? nodeId, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'diff_url')  String? diffUrl, @JsonKey(name: 'patch_url')  String? patchUrl, @JsonKey(name: 'issue_url')  String? issueUrl, @JsonKey(name: 'commits_url')  String? commitsUrl, @JsonKey(name: 'review_comments_url')  String? reviewCommentsUrl, @JsonKey(name: 'review_comment_url')  String? reviewCommentUrl, @JsonKey(name: 'comments_url')  String? commentsUrl, @JsonKey(name: 'statuses_url')  String? statusesUrl,  int? number,  String? state,  bool? locked,  String? title,  User? user,  String? body,  List<Label>? labels,  Milestone? milestone, @JsonKey(name: 'active_lock_reason')  String? activeLockReason, @JsonKey(name: 'created_at')  String? createdAt, @JsonKey(name: 'updated_at')  String? updatedAt, @JsonKey(name: 'closed_at')  String? closedAt, @JsonKey(name: 'merged_at')  String? mergedAt, @JsonKey(name: 'merge_commit_sha')  String? mergeCommitSha,  Assignee? assignee,  List<Assignee>? assignees, @JsonKey(name: 'requested_reviewers')  List<RequestedReviewer>? requestedReviewers, @JsonKey(name: 'requested_teams')  List<RequestedTeam>? requestedTeams,  Head? head,  Base? base,  Links? links, @JsonKey(name: 'author_association')  String? authorAssociation, @JsonKey(name: 'auto_merge')  dynamic autoMerge,  bool? draft)  $default,) {final _that = this;
 switch (_that) {
 case _PullRequest():
 return $default(_that.url,_that.id,_that.nodeId,_that.htmlUrl,_that.diffUrl,_that.patchUrl,_that.issueUrl,_that.commitsUrl,_that.reviewCommentsUrl,_that.reviewCommentUrl,_that.commentsUrl,_that.statusesUrl,_that.number,_that.state,_that.locked,_that.title,_that.user,_that.body,_that.labels,_that.milestone,_that.activeLockReason,_that.createdAt,_that.updatedAt,_that.closedAt,_that.mergedAt,_that.mergeCommitSha,_that.assignee,_that.assignees,_that.requestedReviewers,_that.requestedTeams,_that.head,_that.base,_that.links,_that.authorAssociation,_that.autoMerge,_that.draft);case _:
@@ -301,7 +301,7 @@ return $default(_that.url,_that.id,_that.nodeId,_that.htmlUrl,_that.diffUrl,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  int? id,  String? nodeId,  String? htmlUrl,  String? diffUrl,  String? patchUrl,  String? issueUrl,  String? commitsUrl,  String? reviewCommentsUrl,  String? reviewCommentUrl,  String? commentsUrl,  String? statusesUrl,  int? number,  String? state,  bool? locked,  String? title,  User? user,  String? body,  List<Label>? labels,  Milestone? milestone,  String? activeLockReason,  String? createdAt,  String? updatedAt,  String? closedAt,  String? mergedAt,  String? mergeCommitSha,  Assignee? assignee,  List<Assignee>? assignees,  List<RequestedReviewer>? requestedReviewers,  List<RequestedTeam>? requestedTeams,  Head? head,  Base? base,  Links? links,  String? authorAssociation,  dynamic autoMerge,  bool? draft)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? url,  int? id, @JsonKey(name: 'node_id')  String? nodeId, @JsonKey(name: 'html_url')  String? htmlUrl, @JsonKey(name: 'diff_url')  String? diffUrl, @JsonKey(name: 'patch_url')  String? patchUrl, @JsonKey(name: 'issue_url')  String? issueUrl, @JsonKey(name: 'commits_url')  String? commitsUrl, @JsonKey(name: 'review_comments_url')  String? reviewCommentsUrl, @JsonKey(name: 'review_comment_url')  String? reviewCommentUrl, @JsonKey(name: 'comments_url')  String? commentsUrl, @JsonKey(name: 'statuses_url')  String? statusesUrl,  int? number,  String? state,  bool? locked,  String? title,  User? user,  String? body,  List<Label>? labels,  Milestone? milestone, @JsonKey(name: 'active_lock_reason')  String? activeLockReason, @JsonKey(name: 'created_at')  String? createdAt, @JsonKey(name: 'updated_at')  String? updatedAt, @JsonKey(name: 'closed_at')  String? closedAt, @JsonKey(name: 'merged_at')  String? mergedAt, @JsonKey(name: 'merge_commit_sha')  String? mergeCommitSha,  Assignee? assignee,  List<Assignee>? assignees, @JsonKey(name: 'requested_reviewers')  List<RequestedReviewer>? requestedReviewers, @JsonKey(name: 'requested_teams')  List<RequestedTeam>? requestedTeams,  Head? head,  Base? base,  Links? links, @JsonKey(name: 'author_association')  String? authorAssociation, @JsonKey(name: 'auto_merge')  dynamic autoMerge,  bool? draft)?  $default,) {final _that = this;
 switch (_that) {
 case _PullRequest() when $default != null:
 return $default(_that.url,_that.id,_that.nodeId,_that.htmlUrl,_that.diffUrl,_that.patchUrl,_that.issueUrl,_that.commitsUrl,_that.reviewCommentsUrl,_that.reviewCommentUrl,_that.commentsUrl,_that.statusesUrl,_that.number,_that.state,_that.locked,_that.title,_that.user,_that.body,_that.labels,_that.milestone,_that.activeLockReason,_that.createdAt,_that.updatedAt,_that.closedAt,_that.mergedAt,_that.mergeCommitSha,_that.assignee,_that.assignees,_that.requestedReviewers,_that.requestedTeams,_that.head,_that.base,_that.links,_that.authorAssociation,_that.autoMerge,_that.draft);case _:
@@ -316,21 +316,21 @@ return $default(_that.url,_that.id,_that.nodeId,_that.htmlUrl,_that.diffUrl,_tha
 @JsonSerializable()
 
 class _PullRequest implements PullRequest {
-   _PullRequest({required this.url, required this.id, required this.nodeId, required this.htmlUrl, required this.diffUrl, required this.patchUrl, required this.issueUrl, required this.commitsUrl, required this.reviewCommentsUrl, required this.reviewCommentUrl, required this.commentsUrl, required this.statusesUrl, required this.number, required this.state, required this.locked, required this.title, required this.user, required this.body, required final  List<Label>? labels, required this.milestone, required this.activeLockReason, required this.createdAt, required this.updatedAt, required this.closedAt, required this.mergedAt, required this.mergeCommitSha, required this.assignee, required final  List<Assignee>? assignees, required final  List<RequestedReviewer>? requestedReviewers, required final  List<RequestedTeam>? requestedTeams, required this.head, required this.base, required this.links, required this.authorAssociation, required this.autoMerge, required this.draft}): _labels = labels,_assignees = assignees,_requestedReviewers = requestedReviewers,_requestedTeams = requestedTeams;
+   _PullRequest({required this.url, required this.id, @JsonKey(name: 'node_id') required this.nodeId, @JsonKey(name: 'html_url') required this.htmlUrl, @JsonKey(name: 'diff_url') required this.diffUrl, @JsonKey(name: 'patch_url') required this.patchUrl, @JsonKey(name: 'issue_url') required this.issueUrl, @JsonKey(name: 'commits_url') required this.commitsUrl, @JsonKey(name: 'review_comments_url') required this.reviewCommentsUrl, @JsonKey(name: 'review_comment_url') required this.reviewCommentUrl, @JsonKey(name: 'comments_url') required this.commentsUrl, @JsonKey(name: 'statuses_url') required this.statusesUrl, required this.number, required this.state, required this.locked, required this.title, required this.user, required this.body, required final  List<Label>? labels, required this.milestone, @JsonKey(name: 'active_lock_reason') required this.activeLockReason, @JsonKey(name: 'created_at') required this.createdAt, @JsonKey(name: 'updated_at') required this.updatedAt, @JsonKey(name: 'closed_at') required this.closedAt, @JsonKey(name: 'merged_at') required this.mergedAt, @JsonKey(name: 'merge_commit_sha') required this.mergeCommitSha, required this.assignee, required final  List<Assignee>? assignees, @JsonKey(name: 'requested_reviewers') required final  List<RequestedReviewer>? requestedReviewers, @JsonKey(name: 'requested_teams') required final  List<RequestedTeam>? requestedTeams, required this.head, required this.base, required this.links, @JsonKey(name: 'author_association') required this.authorAssociation, @JsonKey(name: 'auto_merge') required this.autoMerge, required this.draft}): _labels = labels,_assignees = assignees,_requestedReviewers = requestedReviewers,_requestedTeams = requestedTeams;
   factory _PullRequest.fromJson(Map<String, dynamic> json) => _$PullRequestFromJson(json);
 
 @override final  String? url;
 @override final  int? id;
-@override final  String? nodeId;
-@override final  String? htmlUrl;
-@override final  String? diffUrl;
-@override final  String? patchUrl;
-@override final  String? issueUrl;
-@override final  String? commitsUrl;
-@override final  String? reviewCommentsUrl;
-@override final  String? reviewCommentUrl;
-@override final  String? commentsUrl;
-@override final  String? statusesUrl;
+@override@JsonKey(name: 'node_id') final  String? nodeId;
+@override@JsonKey(name: 'html_url') final  String? htmlUrl;
+@override@JsonKey(name: 'diff_url') final  String? diffUrl;
+@override@JsonKey(name: 'patch_url') final  String? patchUrl;
+@override@JsonKey(name: 'issue_url') final  String? issueUrl;
+@override@JsonKey(name: 'commits_url') final  String? commitsUrl;
+@override@JsonKey(name: 'review_comments_url') final  String? reviewCommentsUrl;
+@override@JsonKey(name: 'review_comment_url') final  String? reviewCommentUrl;
+@override@JsonKey(name: 'comments_url') final  String? commentsUrl;
+@override@JsonKey(name: 'statuses_url') final  String? statusesUrl;
 @override final  int? number;
 @override final  String? state;
 @override final  bool? locked;
@@ -347,12 +347,12 @@ class _PullRequest implements PullRequest {
 }
 
 @override final  Milestone? milestone;
-@override final  String? activeLockReason;
-@override final  String? createdAt;
-@override final  String? updatedAt;
-@override final  String? closedAt;
-@override final  String? mergedAt;
-@override final  String? mergeCommitSha;
+@override@JsonKey(name: 'active_lock_reason') final  String? activeLockReason;
+@override@JsonKey(name: 'created_at') final  String? createdAt;
+@override@JsonKey(name: 'updated_at') final  String? updatedAt;
+@override@JsonKey(name: 'closed_at') final  String? closedAt;
+@override@JsonKey(name: 'merged_at') final  String? mergedAt;
+@override@JsonKey(name: 'merge_commit_sha') final  String? mergeCommitSha;
 @override final  Assignee? assignee;
  final  List<Assignee>? _assignees;
 @override List<Assignee>? get assignees {
@@ -364,7 +364,7 @@ class _PullRequest implements PullRequest {
 }
 
  final  List<RequestedReviewer>? _requestedReviewers;
-@override List<RequestedReviewer>? get requestedReviewers {
+@override@JsonKey(name: 'requested_reviewers') List<RequestedReviewer>? get requestedReviewers {
   final value = _requestedReviewers;
   if (value == null) return null;
   if (_requestedReviewers is EqualUnmodifiableListView) return _requestedReviewers;
@@ -373,7 +373,7 @@ class _PullRequest implements PullRequest {
 }
 
  final  List<RequestedTeam>? _requestedTeams;
-@override List<RequestedTeam>? get requestedTeams {
+@override@JsonKey(name: 'requested_teams') List<RequestedTeam>? get requestedTeams {
   final value = _requestedTeams;
   if (value == null) return null;
   if (_requestedTeams is EqualUnmodifiableListView) return _requestedTeams;
@@ -384,8 +384,8 @@ class _PullRequest implements PullRequest {
 @override final  Head? head;
 @override final  Base? base;
 @override final  Links? links;
-@override final  String? authorAssociation;
-@override final  dynamic autoMerge;
+@override@JsonKey(name: 'author_association') final  String? authorAssociation;
+@override@JsonKey(name: 'auto_merge') final  dynamic autoMerge;
 @override final  bool? draft;
 
 /// Create a copy of PullRequest
@@ -421,7 +421,7 @@ abstract mixin class _$PullRequestCopyWith<$Res> implements $PullRequestCopyWith
   factory _$PullRequestCopyWith(_PullRequest value, $Res Function(_PullRequest) _then) = __$PullRequestCopyWithImpl;
 @override @useResult
 $Res call({
- String? url, int? id, String? nodeId, String? htmlUrl, String? diffUrl, String? patchUrl, String? issueUrl, String? commitsUrl, String? reviewCommentsUrl, String? reviewCommentUrl, String? commentsUrl, String? statusesUrl, int? number, String? state, bool? locked, String? title, User? user, String? body, List<Label>? labels, Milestone? milestone, String? activeLockReason, String? createdAt, String? updatedAt, String? closedAt, String? mergedAt, String? mergeCommitSha, Assignee? assignee, List<Assignee>? assignees, List<RequestedReviewer>? requestedReviewers, List<RequestedTeam>? requestedTeams, Head? head, Base? base, Links? links, String? authorAssociation, dynamic autoMerge, bool? draft
+ String? url, int? id,@JsonKey(name: 'node_id') String? nodeId,@JsonKey(name: 'html_url') String? htmlUrl,@JsonKey(name: 'diff_url') String? diffUrl,@JsonKey(name: 'patch_url') String? patchUrl,@JsonKey(name: 'issue_url') String? issueUrl,@JsonKey(name: 'commits_url') String? commitsUrl,@JsonKey(name: 'review_comments_url') String? reviewCommentsUrl,@JsonKey(name: 'review_comment_url') String? reviewCommentUrl,@JsonKey(name: 'comments_url') String? commentsUrl,@JsonKey(name: 'statuses_url') String? statusesUrl, int? number, String? state, bool? locked, String? title, User? user, String? body, List<Label>? labels, Milestone? milestone,@JsonKey(name: 'active_lock_reason') String? activeLockReason,@JsonKey(name: 'created_at') String? createdAt,@JsonKey(name: 'updated_at') String? updatedAt,@JsonKey(name: 'closed_at') String? closedAt,@JsonKey(name: 'merged_at') String? mergedAt,@JsonKey(name: 'merge_commit_sha') String? mergeCommitSha, Assignee? assignee, List<Assignee>? assignees,@JsonKey(name: 'requested_reviewers') List<RequestedReviewer>? requestedReviewers,@JsonKey(name: 'requested_teams') List<RequestedTeam>? requestedTeams, Head? head, Base? base, Links? links,@JsonKey(name: 'author_association') String? authorAssociation,@JsonKey(name: 'auto_merge') dynamic autoMerge, bool? draft
 });
 
 
