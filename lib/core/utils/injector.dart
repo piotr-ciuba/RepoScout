@@ -18,5 +18,12 @@ void configureDependencies() {
 @module
 abstract class RegisterModule {
   @singleton
-  Dio get dio => Dio();
+  Dio get dio {
+    final dio = Dio();
+    dio.options.connectTimeout = const Duration(seconds: 10);
+    dio.options.receiveTimeout = const Duration(seconds: 10);
+    dio.options.sendTimeout = const Duration(seconds: 10);
+
+    return dio;
+  }
 }

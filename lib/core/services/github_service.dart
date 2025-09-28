@@ -17,7 +17,7 @@ class GithubService {
     int page = 1,
     int perPage = 10,
     GitHubSort sort = GitHubSort.updated,
-  }) {
+  }) async {
     final Map<String, dynamic> queryParams = {
       'q': 'is:public',
       'sort': sort.value,
@@ -45,7 +45,7 @@ class GithubService {
     int page = 1,
     int perPage = 10,
     GitHubSort sort = GitHubSort.updated,
-  }) {
+  }) async {
     final Map<String, dynamic> queryParams = {
       'q': keyword,
       'page': page,
@@ -63,7 +63,7 @@ class GithubService {
   Future<Response<dynamic>> fetchPullRequests({
     required String owner,
     required String repo,
-  }) => apiClient.dio.get(
+  }) async => apiClient.dio.get(
     apiClient.endpoints.pullRequestsUrl(owner: owner, repo: repo),
     options: options,
   );
@@ -71,7 +71,7 @@ class GithubService {
   Future<Response<dynamic>> fetchIssues({
     required String owner,
     required String repo,
-  }) => apiClient.dio.get(
+  }) async => apiClient.dio.get(
     apiClient.endpoints.issuesUrl(owner: owner, repo: repo),
     options: options,
   );

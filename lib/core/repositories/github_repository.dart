@@ -27,7 +27,9 @@ class GithubRepository {
           .map((json) => Repo.fromJson(json as Map<String, dynamic>))
           .toList();
     } else {
-      throw Exception('Failed to load public repositories');
+      throw Exception(
+        'Failed to load public repositories: ${response.statusCode}',
+      );
     }
   }
 
@@ -66,7 +68,7 @@ class GithubRepository {
           .map((json) => Repo.fromJson(json as Map<String, dynamic>))
           .toList();
     } else {
-      throw Exception('Failed to search repositories');
+      throw Exception('Failed to search repositories: ${response.statusCode}');
     }
   }
 
