@@ -12,12 +12,18 @@ class GithubRepository {
 
   final GithubService githubService;
 
-  Future<List<Repo>> fetchPublicRepos() async {
-    final Response<dynamic> response = await githubService.fetchPublicRepos();
+  Future<List<Repo>> fetchPublicRepos({int page = 1, int perPage = 10}) async {
+    final Response<dynamic> response = await githubService.fetchPublicRepos(
+      page: page,
+      perPage: perPage,
+    );
 
     if (response.isSuccess) {
-      final List<dynamic> data = response.data as List<dynamic>;
-      return data
+      final Map<String, dynamic> responseData =
+          response.data as Map<String, dynamic>;
+      final List<dynamic> items = responseData['items'] as List<dynamic>;
+
+      return items
           .map((json) => Repo.fromJson(json as Map<String, dynamic>))
           .toList();
     } else {
@@ -42,8 +48,16 @@ class GithubRepository {
     }
   }
 
-  Future<List<Repo>> searchRepos(String keyword) async {
-    final Response<dynamic> response = await githubService.searchRepos(keyword);
+  Future<List<Repo>> searchRepos(
+    String keyword, {
+    int page = 1,
+    int perPage = 10,
+  }) async {
+    final Response<dynamic> response = await githubService.searchRepos(
+      keyword,
+      page: page,
+      perPage: perPage,
+    );
 
     if (response.isSuccess) {
       final Map<String, dynamic> data = response.data as Map<String, dynamic>;
