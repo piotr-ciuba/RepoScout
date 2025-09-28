@@ -17,5 +17,11 @@
   "tryAgain": "Try Again",
   "loadMore": "Load More",
   "loading": "Loading...",
-  "jumpToTop": "Jump to Top"
+  "jumpToTop": "Jump to Top",
+  "noFavoritesYet": "No Favorites Yet",
+  "noFavoritesDescription": "Start exploring repositories and add your favorites to see them here.",
+  "noIssuesFound": "No Issues Found",
+  "noIssuesDescription": "This repository has no open issues at the moment.",
+  "noPullRequests": "No Pull Requests",
+  "noPullRequestsDescription": "This repository has no open pull requests at the moment."
 }

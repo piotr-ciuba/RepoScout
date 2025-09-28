@@ -67,4 +67,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get jumpToTop => 'Jump to Top';
+
+  @override
+  String get noFavoritesYet => 'No Favorites Yet';
+
+  @override
+  String get noFavoritesDescription =>
+      'Start exploring repositories and add your favorites to see them here.';
+
+  @override
+  String get noIssuesFound => 'No Issues Found';
+
+  @override
+  String get noIssuesDescription =>
+      'This repository has no open issues at the moment.';
+
+  @override
+  String get noPullRequests => 'No Pull Requests';
+
+  @override
+  String get noPullRequestsDescription =>
+      'This repository has no open pull requests at the moment.';
 }

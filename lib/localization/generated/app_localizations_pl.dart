@@ -67,4 +67,25 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get jumpToTop => 'Przejdź na górę';
+
+  @override
+  String get noFavoritesYet => 'Brak ulubionych';
+
+  @override
+  String get noFavoritesDescription =>
+      'Zacznij eksplorować repozytoria i dodaj ulubione, aby zobaczyć je tutaj.';
+
+  @override
+  String get noIssuesFound => 'Nie znaleziono problemów';
+
+  @override
+  String get noIssuesDescription =>
+      'To repozytorium nie ma obecnie otwartych problemów.';
+
+  @override
+  String get noPullRequests => 'Brak próśb o scalenie';
+
+  @override
+  String get noPullRequestsDescription =>
+      'To repozytorium nie ma obecnie otwartych próśb o scalenie.';
 }

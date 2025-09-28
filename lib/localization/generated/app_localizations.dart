@@ -211,6 +211,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Jump to Top'**
   String get jumpToTop;
+
+  /// No description provided for @noFavoritesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No Favorites Yet'**
+  String get noFavoritesYet;
+
+  /// No description provided for @noFavoritesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Start exploring repositories and add your favorites to see them here.'**
+  String get noFavoritesDescription;
+
+  /// No description provided for @noIssuesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Issues Found'**
+  String get noIssuesFound;
+
+  /// No description provided for @noIssuesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This repository has no open issues at the moment.'**
+  String get noIssuesDescription;
+
+  /// No description provided for @noPullRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'No Pull Requests'**
+  String get noPullRequests;
+
+  /// No description provided for @noPullRequestsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This repository has no open pull requests at the moment.'**
+  String get noPullRequestsDescription;
 }
 
 class _AppLocalizationsDelegate

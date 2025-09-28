@@ -17,5 +17,11 @@
   "tryAgain": "Spróbuj ponownie",
   "loadMore": "Załaduj więcej",
   "loading": "Ładowanie...",
-  "jumpToTop": "Przejdź na górę"
+  "jumpToTop": "Przejdź na górę",
+  "noFavoritesYet": "Brak ulubionych",
+  "noFavoritesDescription": "Zacznij eksplorować repozytoria i dodaj ulubione, aby zobaczyć je tutaj.",
+  "noIssuesFound": "Nie znaleziono problemów",
+  "noIssuesDescription": "To repozytorium nie ma obecnie otwartych problemów.",
+  "noPullRequests": "Brak próśb o scalenie",
+  "noPullRequestsDescription": "To repozytorium nie ma obecnie otwartych próśb o scalenie."
 }
