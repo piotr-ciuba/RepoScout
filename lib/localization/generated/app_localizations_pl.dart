@@ -22,4 +22,49 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get navbarDiscoverTitle => 'Odkrywaj';
+
+  @override
+  String get unknownRepository => 'Nieznane repozytorium';
+
+  @override
+  String get unknownOwner => 'Nieznany właściciel';
+
+  @override
+  String get discoverBadge => 'ODKRYJ';
+
+  @override
+  String get discoverRepositories => 'Odkrywaj repozytoria';
+
+  @override
+  String get searchDescription => 'Przeszukuj miliony repozytoriów GitHub';
+
+  @override
+  String get startRepositoryJourney =>
+      'Rozpocznij swoją podróż z repozytoriami';
+
+  @override
+  String get searchWelcomeMessage =>
+      'Szukaj repozytoriów według słów kluczowych, języków programowania lub tematów, aby odkryć niesamowite projekty open source.';
+
+  @override
+  String get noRepositoriesFound => 'Nie znaleziono repozytoriów';
+
+  @override
+  String get adjustSearchTerms =>
+      'Spróbuj dostosować kryteria wyszukiwania lub przejrzyj popularne tematy.';
+
+  @override
+  String get somethingWentWrong => 'Ups! Coś poszło nie tak';
+
+  @override
+  String get tryAgain => 'Spróbuj ponownie';
+
+  @override
+  String get loadMore => 'Załaduj więcej';
+
+  @override
+  String get loading => 'Ładowanie...';
+
+  @override
+  String get jumpToTop => 'Przejdź na górę';
 }

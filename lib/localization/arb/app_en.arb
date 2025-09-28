@@ -3,5 +3,19 @@
   "searchRepositoriesHint": "Search repositories...",
   "navbarSearchTitle": "Search",
   "navbarFavoriteTitle": "Favorite",
-  "navbarDiscoverTitle": "Discover"
+  "navbarDiscoverTitle": "Discover",
+  "unknownRepository": "Unknown Repository",
+  "unknownOwner": "Unknown Owner",
+  "discoverBadge": "DISCOVER",
+  "discoverRepositories": "Discover Repositories",
+  "searchDescription": "Search through millions of GitHub repositories",
+  "startRepositoryJourney": "Start Your Repository Journey",
+  "searchWelcomeMessage": "Search for repositories by keywords, programming languages, or topics to discover amazing open-source projects.",
+  "noRepositoriesFound": "No Repositories Found",
+  "adjustSearchTerms": "Try adjusting your search terms or explore popular topics.",
+  "somethingWentWrong": "Oops! Something went wrong",
+  "tryAgain": "Try Again",
+  "loadMore": "Load More",
+  "loading": "Loading...",
+  "jumpToTop": "Jump to Top"
 }

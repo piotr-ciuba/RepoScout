@@ -127,6 +127,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discover'**
   String get navbarDiscoverTitle;
+
+  /// No description provided for @unknownRepository.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Repository'**
+  String get unknownRepository;
+
+  /// No description provided for @unknownOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Owner'**
+  String get unknownOwner;
+
+  /// No description provided for @discoverBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'DISCOVER'**
+  String get discoverBadge;
+
+  /// No description provided for @discoverRepositories.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Repositories'**
+  String get discoverRepositories;
+
+  /// No description provided for @searchDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Search through millions of GitHub repositories'**
+  String get searchDescription;
+
+  /// No description provided for @startRepositoryJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Your Repository Journey'**
+  String get startRepositoryJourney;
+
+  /// No description provided for @searchWelcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for repositories by keywords, programming languages, or topics to discover amazing open-source projects.'**
+  String get searchWelcomeMessage;
+
+  /// No description provided for @noRepositoriesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Repositories Found'**
+  String get noRepositoriesFound;
+
+  /// No description provided for @adjustSearchTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Try adjusting your search terms or explore popular topics.'**
+  String get adjustSearchTerms;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops! Something went wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// No description provided for @loadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Load More'**
+  String get loadMore;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
+  /// No description provided for @jumpToTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Jump to Top'**
+  String get jumpToTop;
 }
 
 class _AppLocalizationsDelegate
