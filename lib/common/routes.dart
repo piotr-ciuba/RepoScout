@@ -8,7 +8,7 @@ extension AppRouteExtension on AppRoute {
       case AppRoute.repos:
         return '/repos';
       case AppRoute.repoDetails:
-        return '/repoDetails';
+        return '/repo/:owner/:name';
       case AppRoute.issues:
         return '/issues';
       case AppRoute.pulls:
@@ -18,5 +18,9 @@ extension AppRouteExtension on AppRoute {
       case AppRoute.settings:
         return '/settings';
     }
+  }
+
+  String buildRepoDetailsPath(String owner, String name) {
+    return '/repo/$owner/$name';
   }
 }

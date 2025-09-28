@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:repo_scout_app/common/app_colors.dart';
 import 'package:repo_scout_app/common/app_sizes.dart';
 import 'package:repo_scout_app/common/app_text_styles.dart';
+import 'package:repo_scout_app/common/routes.dart';
 import 'package:repo_scout_app/extensions/localized_context.dart';
 import 'package:repo_scout_app/models/repo/repo.dart';
 
@@ -19,25 +21,29 @@ class RepositoryCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSizes.baseW),
       ),
-      child: Container(
-        padding: EdgeInsets.all(AppSizes.mediumW),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (index != null) _buildIndexIndicator(),
-                SizedBox(width: AppSizes.baseW),
-                _buildTitleAuthor(context),
-              ],
-            ),
-            SizedBox(height: AppSizes.baseV),
-            if (repository.description != null &&
-                repository.description!.isNotEmpty)
-              _buildDescription(),
-            SizedBox(height: AppSizes.baseV),
-          ],
+      child: InkWell(
+        borderRadius: BorderRadius.circular(AppSizes.baseW),
+        onTap: () => _navigateToDetails(context),
+        child: Container(
+          padding: EdgeInsets.all(AppSizes.mediumW),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (index != null) _buildIndexIndicator(),
+                  SizedBox(width: AppSizes.baseW),
+                  _buildTitleAuthor(context),
+                ],
+              ),
+              SizedBox(height: AppSizes.baseV),
+              if (repository.description != null &&
+                  repository.description!.isNotEmpty)
+                _buildDescription(),
+              SizedBox(height: AppSizes.baseV),
+            ],
+          ),
         ),
       ),
     );
@@ -106,5 +112,15 @@ class RepositoryCard extends StatelessWidget {
       maxLines: 3,
       overflow: TextOverflow.ellipsis,
     );
+  }
+
+  void _navigateToDetails(BuildContext context) {
+    final owner = repository.owner?.login;
+    final name = repository.name;
+    
+    if (owner != null && name != null) {
+      final path = AppRoute.repoDetails.buildRepoDetailsPath(owner, name);
+      context.go(path);
+    }
   }
 }
