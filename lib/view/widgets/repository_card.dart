@@ -89,6 +89,23 @@ class RepositoryCard extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(width: AppSizes.smallW),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star_border,
+                    color: AppColors.primaryOrange600,
+                    size: AppSizes.mediumW,
+                  ),
+                  SizedBox(width: AppSizes.smallW),
+                  Text(
+                    _formatStars(repository.stargazersCount ?? 0),
+                    style: AppTextStyles.bodyMedium.copyWith(
+                      color: AppColors.primaryGrey600,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           Text(
@@ -100,6 +117,16 @@ class RepositoryCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _formatStars(int stars) {
+    if (stars >= 1000000) {
+      return '${(stars / 1000000).toStringAsFixed(1)}M';
+    } else if (stars >= 1000) {
+      return '${(stars / 1000).toStringAsFixed(1)}K';
+    } else {
+      return stars.toString();
+    }
   }
 
   Widget _buildDescription() {
@@ -117,7 +144,7 @@ class RepositoryCard extends StatelessWidget {
   void _navigateToDetails(BuildContext context) {
     final owner = repository.owner?.login;
     final name = repository.name;
-    
+
     if (owner != null && name != null) {
       final path = AppRoute.repoDetails.buildRepoDetailsPath(owner, name);
       context.go(path);
