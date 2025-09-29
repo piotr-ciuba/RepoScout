@@ -39,5 +39,12 @@
   "infoCreated": "Created",
   "infoLastUpdated": "Last Updated",
   "infoPrimaryLanguage": "Primary Language",
-  "infoLicense": "License"
+  "infoLicense": "License",
+  "discoverTitle": "Discover",
+  "discoverNewRepositories": "Discover new repositories",
+  "randomDiscovery": "Random Discovery",
+  "discoverDescription": "Discover one repository at a time - perfect for focused exploration",
+  "findingYourNextRepo": "Finding your next repository...",
+  "discoverAnotherRepository": "Discover Another Repository",
+  "learningOpportunity": "Every repository you discover could be your next learning opportunity or inspiration for a new project."
 }

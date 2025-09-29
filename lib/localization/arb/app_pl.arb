@@ -39,5 +39,12 @@
   "infoCreated": "Utworzono",
   "infoLastUpdated": "Ostatnia aktualizacja",
   "infoPrimaryLanguage": "Główny język",
-  "infoLicense": "Licencja"
+  "infoLicense": "Licencja",
+  "discoverTitle": "Odkrywaj",
+  "discoverNewRepositories": "Odkrywaj nowe repozytoria",
+  "randomDiscovery": "Losowe odkrywanie",
+  "discoverDescription": "Odkrywaj po jednym repozytorium naraz - idealne do skoncentrowanej eksploracji",
+  "findingYourNextRepo": "Szukanie twojego następnego repozytorium...",
+  "discoverAnotherRepository": "Odkryj inne repozytorium",
+  "learningOpportunity": "Każde repozytorium, które odkryjesz, może być twoją następną okazją do nauki lub inspiracją do nowego projektu."
 }

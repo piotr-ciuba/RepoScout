@@ -137,4 +137,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get infoLicense => 'License';
+
+  @override
+  String get discoverTitle => 'Discover';
+
+  @override
+  String get discoverNewRepositories => 'Discover new repositories';
+
+  @override
+  String get randomDiscovery => 'Random Discovery';
+
+  @override
+  String get discoverDescription =>
+      'Discover one repository at a time - perfect for focused exploration';
+
+  @override
+  String get findingYourNextRepo => 'Finding your next repository...';
+
+  @override
+  String get discoverAnotherRepository => 'Discover Another Repository';
+
+  @override
+  String get learningOpportunity =>
+      'Every repository you discover could be your next learning opportunity or inspiration for a new project.';
 }

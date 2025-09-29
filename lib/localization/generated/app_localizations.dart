@@ -343,6 +343,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'License'**
   String get infoLicense;
+
+  /// No description provided for @discoverTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover'**
+  String get discoverTitle;
+
+  /// No description provided for @discoverNewRepositories.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover new repositories'**
+  String get discoverNewRepositories;
+
+  /// No description provided for @randomDiscovery.
+  ///
+  /// In en, this message translates to:
+  /// **'Random Discovery'**
+  String get randomDiscovery;
+
+  /// No description provided for @discoverDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover one repository at a time - perfect for focused exploration'**
+  String get discoverDescription;
+
+  /// No description provided for @findingYourNextRepo.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding your next repository...'**
+  String get findingYourNextRepo;
+
+  /// No description provided for @discoverAnotherRepository.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Another Repository'**
+  String get discoverAnotherRepository;
+
+  /// No description provided for @learningOpportunity.
+  ///
+  /// In en, this message translates to:
+  /// **'Every repository you discover could be your next learning opportunity or inspiration for a new project.'**
+  String get learningOpportunity;
 }
 
 class _AppLocalizationsDelegate

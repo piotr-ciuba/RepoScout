@@ -137,4 +137,28 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get infoLicense => 'Licencja';
+
+  @override
+  String get discoverTitle => 'Odkrywaj';
+
+  @override
+  String get discoverNewRepositories => 'Odkrywaj nowe repozytoria';
+
+  @override
+  String get randomDiscovery => 'Losowe odkrywanie';
+
+  @override
+  String get discoverDescription =>
+      'Odkrywaj po jednym repozytorium naraz - idealne do skoncentrowanej eksploracji';
+
+  @override
+  String get findingYourNextRepo =>
+      'Szukanie twojego następnego repozytorium...';
+
+  @override
+  String get discoverAnotherRepository => 'Odkryj inne repozytorium';
+
+  @override
+  String get learningOpportunity =>
+      'Każde repozytorium, które odkryjesz, może być twoją następną okazją do nauki lub inspiracją do nowego projektu.';
 }
