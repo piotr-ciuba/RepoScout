@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:repo_scout_app/core/repositories/favorites_repository.dart';
 import 'package:repo_scout_app/core/repositories/github_repository.dart';
 import 'package:repo_scout_app/models/issue/issue.dart';
 import 'package:repo_scout_app/models/pull_request/pull_request.dart';
@@ -9,7 +10,8 @@ part 'github_event.dart';
 part 'github_state.dart';
 
 class GithubBloc extends Bloc<GithubEvent, GithubState> {
-  GithubBloc(this._githubRepository) : super(GithubInitial()) {
+  GithubBloc(this._githubRepository, this._favoritesRepository)
+    : super(GithubInitial()) {
     on<GithubEvent>((event, emit) {});
     on<FetchPublicReposEvent>(_fetchPublicRepos);
     on<FetchRepoDetailsEvent>(_fetchRepoDetails);
@@ -18,9 +20,13 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
     on<FetchPullRequestsEvent>(_fetchPullRequests);
     on<ClearReposEvent>(_clear);
     on<RetryFetchEvent>(_retry);
+    on<FetchFavoriteReposEvent>(_fetchFavoriteRepos);
+    on<AddFavoriteRepoEvent>(_addFavoriteRepo);
+    on<RemoveFavoriteRepoEvent>(_removeFavoriteRepo);
   }
 
   final GithubRepository _githubRepository;
+  final FavoritesRepository _favoritesRepository;
 
   Future<void> _fetchPublicRepos(
     FetchPublicReposEvent event,
@@ -52,6 +58,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           selectedRepo: state.selectedRepo,
           lastEvent: event,
           repos: allRepos,
+          favoriteRepos: state.favoriteRepos,
           issues: state.issues,
           pullRequests: state.pullRequests,
           currentPage: currentPage,
@@ -96,6 +103,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           selectedRepo: state.selectedRepo,
           lastEvent: event,
           repos: allRepos,
+          favoriteRepos: state.favoriteRepos,
           issues: state.issues,
           pullRequests: state.pullRequests,
           currentPage: currentPage,
@@ -124,6 +132,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           selectedRepo: repoDetails,
           lastEvent: event,
           repos: state.repos,
+          favoriteRepos: state.favoriteRepos,
           issues: state.issues,
           pullRequests: state.pullRequests,
           currentPage: state.currentPage,
@@ -146,6 +155,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
         selectedRepo: state.selectedRepo,
         lastEvent: event,
         repos: state.repos,
+        favoriteRepos: state.favoriteRepos,
         issues: state.issues,
         pullRequests: state.pullRequests,
         currentPage: state.currentPage,
@@ -181,6 +191,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           selectedRepo: state.selectedRepo,
           lastEvent: event,
           repos: state.repos,
+          favoriteRepos: state.favoriteRepos,
           issues: allIssues,
           pullRequests: state.pullRequests,
           currentPage: currentPage,
@@ -203,6 +214,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
         selectedRepo: state.selectedRepo,
         lastEvent: event,
         repos: state.repos,
+        favoriteRepos: state.favoriteRepos,
         issues: state.issues,
         pullRequests: state.pullRequests,
         currentPage: state.currentPage,
@@ -238,6 +250,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           selectedRepo: state.selectedRepo,
           lastEvent: event,
           repos: state.repos,
+          favoriteRepos: state.favoriteRepos,
           issues: state.issues,
           pullRequests: allPullRequests,
           currentPage: currentPage,
@@ -251,12 +264,55 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
     }
   }
 
+  Future<void> _fetchFavoriteRepos(
+    FetchFavoriteReposEvent event,
+    Emitter<GithubState> emit,
+  ) async {
+    _emitLoadingState(event, emit);
+    try {
+      final favoriteRepos = await _favoritesRepository.getFavorites();
+      emit(
+        GithubSuccess(
+          selectedRepo: state.selectedRepo,
+          lastEvent: event,
+          repos: state.repos,
+          favoriteRepos: favoriteRepos,
+          issues: state.issues,
+          pullRequests: state.pullRequests,
+          currentPage: state.currentPage,
+          hasMorePages: state.hasMorePages,
+          isLoadingIssues: state.isLoadingIssues,
+          isLoadingPullRequests: state.isLoadingPullRequests,
+        ),
+      );
+    } catch (error) {
+      emit(GithubError(message: error.toString(), lastEvent: event));
+    }
+  }
+
+  Future<void> _addFavoriteRepo(
+    AddFavoriteRepoEvent event,
+    Emitter<GithubState> emit,
+  ) async {
+    await _favoritesRepository.addFavorite(event.repo);
+    add(FetchFavoriteReposEvent());
+  }
+
+  Future<void> _removeFavoriteRepo(
+    RemoveFavoriteRepoEvent event,
+    Emitter<GithubState> emit,
+  ) async {
+    await _favoritesRepository.removeFavorite(event.repo);
+    add(FetchFavoriteReposEvent());
+  }
+
   void _emitLoadingState(GithubEvent event, Emitter<GithubState> emit) {
     emit(
       GithubLoading(
         selectedRepo: state.selectedRepo,
         lastEvent: event,
         repos: state.repos,
+        favoriteRepos: state.favoriteRepos,
         issues: state.issues,
         pullRequests: state.pullRequests,
         currentPage: state.currentPage,

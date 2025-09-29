@@ -16,8 +16,10 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../common/endpoints.dart' as _i272;
 import '../blocs/navigation_bar/navigation_bar_bloc.dart' as _i343;
+import '../repositories/favorites_repository.dart' as _i1070;
 import '../repositories/github_repository.dart' as _i949;
 import '../repositories/settings_repository.dart' as _i2;
+import '../services/favorites_service.dart' as _i211;
 import '../services/github_service.dart' as _i493;
 import '../services/settings_service.dart' as _i114;
 import 'api_client.dart' as _i1013;
@@ -41,6 +43,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i114.SettingsService>(
       () => _i114.SettingsService(gh<_i460.SharedPreferences>()),
     );
+    gh.singleton<_i211.FavoritesService>(
+      () => _i211.FavoritesService(gh<_i460.SharedPreferences>()),
+    );
     gh.factory<_i2.SettingsRepository>(
       () => _i2.SettingsRepository(gh<_i114.SettingsService>()),
     );
@@ -49,6 +54,9 @@ extension GetItInjectableX on _i174.GetIt {
         dio: gh<_i361.Dio>(),
         endpoints: gh<_i272.Endpoints>(),
       ),
+    );
+    gh.singleton<_i1070.FavoritesRepository>(
+      () => _i1070.FavoritesRepository(gh<_i211.FavoritesService>()),
     );
     gh.singleton<_i493.GithubService>(
       () => _i493.GithubService(apiClient: gh<_i1013.ApiClient>()),

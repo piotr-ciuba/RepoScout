@@ -4,6 +4,7 @@ sealed class GithubState extends Equatable {
   final Repo? selectedRepo;
   final GithubEvent? lastEvent;
   final List<Repo> repos;
+  final List<Repo> favoriteRepos;
   final List<Issue> issues;
   final List<PullRequest> pullRequests;
   final int currentPage;
@@ -15,6 +16,7 @@ sealed class GithubState extends Equatable {
     this.selectedRepo,
     this.lastEvent,
     this.repos = const [],
+    this.favoriteRepos = const [],
     this.issues = const [],
     this.pullRequests = const [],
     this.currentPage = 1,
@@ -28,6 +30,7 @@ sealed class GithubState extends Equatable {
     selectedRepo,
     lastEvent,
     repos,
+    favoriteRepos,
     issues,
     pullRequests,
     currentPage,
@@ -44,6 +47,7 @@ final class GithubLoading extends GithubState {
     required super.selectedRepo,
     required super.lastEvent,
     required super.repos,
+    required super.favoriteRepos,
     required super.issues,
     required super.pullRequests,
     required super.currentPage,
@@ -58,6 +62,7 @@ final class GithubSuccess extends GithubState {
     required super.selectedRepo,
     required super.lastEvent,
     required super.repos,
+    required super.favoriteRepos,
     required super.issues,
     required super.pullRequests,
     required super.currentPage,

@@ -79,3 +79,23 @@ final class FetchPullRequestsEvent extends GithubEvent {
 final class ClearReposEvent extends GithubEvent {}
 
 final class RetryFetchEvent extends GithubEvent {}
+
+final class FetchFavoriteReposEvent extends GithubEvent {}
+
+final class AddFavoriteRepoEvent extends GithubEvent {
+  final Repo repo;
+
+  const AddFavoriteRepoEvent(this.repo);
+
+  @override
+  List<Object?> get props => [repo];
+}
+
+final class RemoveFavoriteRepoEvent extends GithubEvent {
+  final Repo repo;
+
+  const RemoveFavoriteRepoEvent(this.repo);
+
+  @override
+  List<Object?> get props => [repo];
+}
