@@ -212,6 +212,12 @@ abstract class AppLocalizations {
   /// **'Jump to Top'**
   String get jumpToTop;
 
+  /// No description provided for @favorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favorites;
+
   /// No description provided for @noFavoritesYet.
   ///
   /// In en, this message translates to:
@@ -223,6 +229,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start exploring repositories and add your favorites to see them here.'**
   String get noFavoritesDescription;
+
+  /// No description provided for @favoritesEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You can favorite repositories by tapping the heart icon on any repository card.'**
+  String get favoritesEmptyDescription;
+
+  /// No description provided for @exploreRepositories.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Repositories'**
+  String get exploreRepositories;
 
   /// No description provided for @noIssuesFound.
   ///

@@ -69,11 +69,21 @@ class AppLocalizationsPl extends AppLocalizations {
   String get jumpToTop => 'Przejdź na górę';
 
   @override
+  String get favorites => 'Ulubione';
+
+  @override
   String get noFavoritesYet => 'Brak ulubionych';
 
   @override
   String get noFavoritesDescription =>
       'Zacznij eksplorować repozytoria i dodaj ulubione, aby zobaczyć je tutaj.';
+
+  @override
+  String get favoritesEmptyDescription =>
+      'Możesz dodawać repozytoria do ulubionych, dotykając ikonę serca na dowolnej karcie repozytorium.';
+
+  @override
+  String get exploreRepositories => 'Eksploruj repozytoria';
 
   @override
   String get noIssuesFound => 'Nie znaleziono problemów';

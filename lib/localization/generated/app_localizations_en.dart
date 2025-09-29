@@ -69,11 +69,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jumpToTop => 'Jump to Top';
 
   @override
+  String get favorites => 'Favorites';
+
+  @override
   String get noFavoritesYet => 'No Favorites Yet';
 
   @override
   String get noFavoritesDescription =>
       'Start exploring repositories and add your favorites to see them here.';
+
+  @override
+  String get favoritesEmptyDescription =>
+      'You can favorite repositories by tapping the heart icon on any repository card.';
+
+  @override
+  String get exploreRepositories => 'Explore Repositories';
 
   @override
   String get noIssuesFound => 'No Issues Found';
