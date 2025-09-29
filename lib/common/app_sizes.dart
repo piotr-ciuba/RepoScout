@@ -22,4 +22,17 @@ mixin AppSizes {
   static double get radiusBase => 12.r;
   static double get radiusMedium => 16.r;
   static double get radiusLarge => 24.r;
+
+  // Icon sizes
+  static double get iconTiny => 12.w;
+  static double get iconSmall => 16.w;
+  static double get iconBase => 20.w;
+  static double get iconMedium => 24.w;
+  static double get iconLarge => 32.w;
+
+  // Container sizes
+  static double get containerSmall => 40.w;
+
+  // Border widths
+  static double get borderThin => 1.w;
 }
