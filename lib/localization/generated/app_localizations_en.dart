@@ -88,4 +88,53 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get noPullRequestsDescription =>
       'This repository has no open pull requests at the moment.';
+
+  @override
+  String get tabOverview => 'Overview';
+
+  @override
+  String get tabIssues => 'Issues';
+
+  @override
+  String get tabPullRequests => 'Pull Requests';
+
+  @override
+  String get aboutThisRepository => 'About this repository';
+
+  @override
+  String get noDescriptionAvailable =>
+      'No description available for this repository.';
+
+  @override
+  String get repositoryInformation => 'Repository Information';
+
+  @override
+  String get repositorySize => 'Repository Size';
+
+  @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get statStars => 'Stars';
+
+  @override
+  String get statForks => 'Forks';
+
+  @override
+  String get statWatchers => 'Watchers';
+
+  @override
+  String get infoDefaultBranch => 'Default Branch';
+
+  @override
+  String get infoCreated => 'Created';
+
+  @override
+  String get infoLastUpdated => 'Last Updated';
+
+  @override
+  String get infoPrimaryLanguage => 'Primary Language';
+
+  @override
+  String get infoLicense => 'License';
 }

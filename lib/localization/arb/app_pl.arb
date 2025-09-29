@@ -23,5 +23,21 @@
   "noIssuesFound": "Nie znaleziono problemów",
   "noIssuesDescription": "To repozytorium nie ma obecnie otwartych problemów.",
   "noPullRequests": "Brak próśb o scalenie",
-  "noPullRequestsDescription": "To repozytorium nie ma obecnie otwartych próśb o scalenie."
+  "noPullRequestsDescription": "To repozytorium nie ma obecnie otwartych próśb o scalenie.",
+  "tabOverview": "Przegląd",
+  "tabIssues": "Problemy",
+  "tabPullRequests": "Prośby o scalenie",
+  "aboutThisRepository": "O tym repozytorium",
+  "noDescriptionAvailable": "Brak dostępnego opisu dla tego repozytorium.",
+  "repositoryInformation": "Informacje o repozytorium",
+  "repositorySize": "Rozmiar repozytorium",
+  "statistics": "Statystyki",
+  "statStars": "Gwiazdki",
+  "statForks": "Rozgałęzienia",
+  "statWatchers": "Obserwujący",
+  "infoDefaultBranch": "Domyślna gałąź",
+  "infoCreated": "Utworzono",
+  "infoLastUpdated": "Ostatnia aktualizacja",
+  "infoPrimaryLanguage": "Główny język",
+  "infoLicense": "Licencja"
 }

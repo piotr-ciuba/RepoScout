@@ -247,6 +247,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This repository has no open pull requests at the moment.'**
   String get noPullRequestsDescription;
+
+  /// No description provided for @tabOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get tabOverview;
+
+  /// No description provided for @tabIssues.
+  ///
+  /// In en, this message translates to:
+  /// **'Issues'**
+  String get tabIssues;
+
+  /// No description provided for @tabPullRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Pull Requests'**
+  String get tabPullRequests;
+
+  /// No description provided for @aboutThisRepository.
+  ///
+  /// In en, this message translates to:
+  /// **'About this repository'**
+  String get aboutThisRepository;
+
+  /// No description provided for @noDescriptionAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No description available for this repository.'**
+  String get noDescriptionAvailable;
+
+  /// No description provided for @repositoryInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Repository Information'**
+  String get repositoryInformation;
+
+  /// No description provided for @repositorySize.
+  ///
+  /// In en, this message translates to:
+  /// **'Repository Size'**
+  String get repositorySize;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @statStars.
+  ///
+  /// In en, this message translates to:
+  /// **'Stars'**
+  String get statStars;
+
+  /// No description provided for @statForks.
+  ///
+  /// In en, this message translates to:
+  /// **'Forks'**
+  String get statForks;
+
+  /// No description provided for @statWatchers.
+  ///
+  /// In en, this message translates to:
+  /// **'Watchers'**
+  String get statWatchers;
+
+  /// No description provided for @infoDefaultBranch.
+  ///
+  /// In en, this message translates to:
+  /// **'Default Branch'**
+  String get infoDefaultBranch;
+
+  /// No description provided for @infoCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Created'**
+  String get infoCreated;
+
+  /// No description provided for @infoLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Updated'**
+  String get infoLastUpdated;
+
+  /// No description provided for @infoPrimaryLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Primary Language'**
+  String get infoPrimaryLanguage;
+
+  /// No description provided for @infoLicense.
+  ///
+  /// In en, this message translates to:
+  /// **'License'**
+  String get infoLicense;
 }
 
 class _AppLocalizationsDelegate

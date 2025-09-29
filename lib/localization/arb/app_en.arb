@@ -23,5 +23,21 @@
   "noIssuesFound": "No Issues Found",
   "noIssuesDescription": "This repository has no open issues at the moment.",
   "noPullRequests": "No Pull Requests",
-  "noPullRequestsDescription": "This repository has no open pull requests at the moment."
+  "noPullRequestsDescription": "This repository has no open pull requests at the moment.",
+  "tabOverview": "Overview",
+  "tabIssues": "Issues",
+  "tabPullRequests": "Pull Requests",
+  "aboutThisRepository": "About this repository",
+  "noDescriptionAvailable": "No description available for this repository.",
+  "repositoryInformation": "Repository Information",
+  "repositorySize": "Repository Size",
+  "statistics": "Statistics",
+  "statStars": "Stars",
+  "statForks": "Forks",
+  "statWatchers": "Watchers",
+  "infoDefaultBranch": "Default Branch",
+  "infoCreated": "Created",
+  "infoLastUpdated": "Last Updated",
+  "infoPrimaryLanguage": "Primary Language",
+  "infoLicense": "License"
 }

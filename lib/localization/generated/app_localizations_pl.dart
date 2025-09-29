@@ -88,4 +88,53 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get noPullRequestsDescription =>
       'To repozytorium nie ma obecnie otwartych próśb o scalenie.';
+
+  @override
+  String get tabOverview => 'Przegląd';
+
+  @override
+  String get tabIssues => 'Problemy';
+
+  @override
+  String get tabPullRequests => 'Prośby o scalenie';
+
+  @override
+  String get aboutThisRepository => 'O tym repozytorium';
+
+  @override
+  String get noDescriptionAvailable =>
+      'Brak dostępnego opisu dla tego repozytorium.';
+
+  @override
+  String get repositoryInformation => 'Informacje o repozytorium';
+
+  @override
+  String get repositorySize => 'Rozmiar repozytorium';
+
+  @override
+  String get statistics => 'Statystyki';
+
+  @override
+  String get statStars => 'Gwiazdki';
+
+  @override
+  String get statForks => 'Rozgałęzienia';
+
+  @override
+  String get statWatchers => 'Obserwujący';
+
+  @override
+  String get infoDefaultBranch => 'Domyślna gałąź';
+
+  @override
+  String get infoCreated => 'Utworzono';
+
+  @override
+  String get infoLastUpdated => 'Ostatnia aktualizacja';
+
+  @override
+  String get infoPrimaryLanguage => 'Główny język';
+
+  @override
+  String get infoLicense => 'Licencja';
 }
