@@ -11,6 +11,7 @@ import 'package:repo_scout_app/view/pages/repository_details_page.dart';
 GoRouter get appRouter => _router;
 
 final GithubBloc _githubBloc = GithubBloc(serviceLocator<GithubRepository>());
+final NavigationBarBloc _navigationBarBloc = NavigationBarBloc();
 
 final GoRouter _router = GoRouter(
   initialLocation: AppRoute.root.path,
@@ -21,7 +22,7 @@ final GoRouter _router = GoRouter(
       builder: (context, state) => MultiBlocProvider(
         providers: [
           BlocProvider.value(value: _githubBloc),
-          BlocProvider(create: (context) => NavigationBarBloc()),
+          BlocProvider.value(value: _navigationBarBloc),
         ],
         child: const HomePage(),
       ),
