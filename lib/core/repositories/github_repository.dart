@@ -75,10 +75,14 @@ class GithubRepository {
   Future<List<PullRequest>> fetchPullRequests({
     required String owner,
     required String repo,
+    int page = 1,
+    int perPage = 30,
   }) async {
     final Response<dynamic> response = await githubService.fetchPullRequests(
       owner: owner,
       repo: repo,
+      page: page,
+      perPage: perPage,
     );
 
     if (response.isSuccess) {
@@ -94,10 +98,14 @@ class GithubRepository {
   Future<List<Issue>> fetchIssues({
     required String owner,
     required String repo,
+    int page = 1,
+    int perPage = 30,
   }) async {
     final Response<dynamic> response = await githubService.fetchIssues(
       owner: owner,
       repo: repo,
+      page: page,
+      perPage: perPage,
     );
 
     if (response.isSuccess) {

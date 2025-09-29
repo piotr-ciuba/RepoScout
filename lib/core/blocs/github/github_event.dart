@@ -47,19 +47,33 @@ final class FetchRepoDetailsEvent extends GithubEvent {
 final class FetchIssuesEvent extends GithubEvent {
   final String owner;
   final String repo;
-  const FetchIssuesEvent({required this.owner, required this.repo});
+  final int page;
+  final bool loadMore;
+  const FetchIssuesEvent({
+    required this.owner, 
+    required this.repo, 
+    this.page = 1,
+    this.loadMore = false,
+  });
 
   @override
-  List<Object?> get props => [owner, repo];
+  List<Object?> get props => [owner, repo, page, loadMore];
 }
 
 final class FetchPullRequestsEvent extends GithubEvent {
   final String owner;
   final String repo;
-  const FetchPullRequestsEvent({required this.owner, required this.repo});
+  final int page;
+  final bool loadMore;
+  const FetchPullRequestsEvent({
+    required this.owner, 
+    required this.repo, 
+    this.page = 1,
+    this.loadMore = false,
+  });
 
   @override
-  List<Object?> get props => [owner, repo];
+  List<Object?> get props => [owner, repo, page, loadMore];
 }
 
 final class ClearReposEvent extends GithubEvent {}

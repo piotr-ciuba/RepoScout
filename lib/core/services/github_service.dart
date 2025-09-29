@@ -63,16 +63,30 @@ class GithubService {
   Future<Response<dynamic>> fetchPullRequests({
     required String owner,
     required String repo,
-  }) async => apiClient.dio.get(
-    apiClient.endpoints.pullRequestsUrl(owner: owner, repo: repo),
-    options: options,
-  );
+    int page = 1,
+    int perPage = 30,
+  }) async {
+    final queryParams = {'page': page, 'per_page': perPage, 'state': 'open'};
+
+    return apiClient.dio.get(
+      apiClient.endpoints.pullRequestsUrl(owner: owner, repo: repo),
+      queryParameters: queryParams,
+      options: options,
+    );
+  }
 
   Future<Response<dynamic>> fetchIssues({
     required String owner,
     required String repo,
-  }) async => apiClient.dio.get(
-    apiClient.endpoints.issuesUrl(owner: owner, repo: repo),
-    options: options,
-  );
+    int page = 1,
+    int perPage = 30,
+  }) async {
+    final queryParams = {'page': page, 'per_page': perPage, 'state': 'open'};
+
+    return apiClient.dio.get(
+      apiClient.endpoints.issuesUrl(owner: owner, repo: repo),
+      queryParameters: queryParams,
+      options: options,
+    );
+  }
 }

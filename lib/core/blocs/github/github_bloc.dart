@@ -56,6 +56,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           pullRequests: state.pullRequests,
           currentPage: currentPage,
           hasMorePages: hasMorePages,
+          isLoadingIssues: state.isLoadingIssues,
+          isLoadingPullRequests: state.isLoadingPullRequests,
         ),
       );
     } catch (error) {
@@ -98,6 +100,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           pullRequests: state.pullRequests,
           currentPage: currentPage,
           hasMorePages: hasMorePages,
+          isLoadingIssues: state.isLoadingIssues,
+          isLoadingPullRequests: state.isLoadingPullRequests,
         ),
       );
     } catch (error) {
@@ -124,6 +128,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
           pullRequests: state.pullRequests,
           currentPage: state.currentPage,
           hasMorePages: state.hasMorePages,
+          isLoadingIssues: state.isLoadingIssues,
+          isLoadingPullRequests: state.isLoadingPullRequests,
         ),
       );
     } catch (error) {
@@ -135,21 +141,52 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
     FetchIssuesEvent event,
     Emitter<GithubState> emit,
   ) async {
-    _emitLoadingState(event, emit);
+    emit(
+      GithubSuccess(
+        selectedRepo: state.selectedRepo,
+        lastEvent: event,
+        repos: state.repos,
+        issues: state.issues,
+        pullRequests: state.pullRequests,
+        currentPage: state.currentPage,
+        hasMorePages: state.hasMorePages,
+        isLoadingIssues: true,
+        isLoadingPullRequests: state.isLoadingPullRequests,
+      ),
+    );
+
     try {
       final issues = await _githubRepository.fetchIssues(
         owner: event.owner,
         repo: event.repo,
+        page: event.page,
+        perPage: 30,
       );
+
+      final List<Issue> allIssues;
+      final int currentPage;
+
+      if (event.loadMore && state.issues.isNotEmpty) {
+        allIssues = [...state.issues, ...issues];
+        currentPage = event.page;
+      } else {
+        allIssues = issues;
+        currentPage = event.page;
+      }
+
+      final bool hasMorePages = issues.length >= 30;
+
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
           lastEvent: event,
           repos: state.repos,
-          issues: issues,
+          issues: allIssues,
           pullRequests: state.pullRequests,
-          currentPage: state.currentPage,
-          hasMorePages: state.hasMorePages,
+          currentPage: currentPage,
+          hasMorePages: hasMorePages,
+          isLoadingIssues: false,
+          isLoadingPullRequests: state.isLoadingPullRequests,
         ),
       );
     } catch (error) {
@@ -161,21 +198,52 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
     FetchPullRequestsEvent event,
     Emitter<GithubState> emit,
   ) async {
-    _emitLoadingState(event, emit);
+    emit(
+      GithubSuccess(
+        selectedRepo: state.selectedRepo,
+        lastEvent: event,
+        repos: state.repos,
+        issues: state.issues,
+        pullRequests: state.pullRequests,
+        currentPage: state.currentPage,
+        hasMorePages: state.hasMorePages,
+        isLoadingIssues: state.isLoadingIssues,
+        isLoadingPullRequests: true,
+      ),
+    );
+
     try {
       final pullRequests = await _githubRepository.fetchPullRequests(
         owner: event.owner,
         repo: event.repo,
+        page: event.page,
+        perPage: 30,
       );
+
+      final List<PullRequest> allPullRequests;
+      final int currentPage;
+
+      if (event.loadMore && state.pullRequests.isNotEmpty) {
+        allPullRequests = [...state.pullRequests, ...pullRequests];
+        currentPage = event.page;
+      } else {
+        allPullRequests = pullRequests;
+        currentPage = event.page;
+      }
+
+      final bool hasMorePages = pullRequests.length >= 30;
+
       emit(
         GithubSuccess(
           selectedRepo: state.selectedRepo,
           lastEvent: event,
           repos: state.repos,
           issues: state.issues,
-          pullRequests: pullRequests,
-          currentPage: state.currentPage,
-          hasMorePages: state.hasMorePages,
+          pullRequests: allPullRequests,
+          currentPage: currentPage,
+          hasMorePages: hasMorePages,
+          isLoadingIssues: state.isLoadingIssues,
+          isLoadingPullRequests: false,
         ),
       );
     } catch (error) {
@@ -193,6 +261,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
         pullRequests: state.pullRequests,
         currentPage: state.currentPage,
         hasMorePages: state.hasMorePages,
+        isLoadingIssues: state.isLoadingIssues,
+        isLoadingPullRequests: state.isLoadingPullRequests,
       ),
     );
   }
