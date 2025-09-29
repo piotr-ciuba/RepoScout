@@ -23,6 +23,8 @@
   "noFavoritesDescription": "Start exploring repositories and add your favorites to see them here.",
   "favoritesEmptyDescription": "You can favorite repositories by tapping the heart icon on any repository card.",
   "exploreRepositories": "Explore Repositories",
+  "removedFromFavorites": "removed from favorites",
+  "undo": "Undo",
   "noIssuesFound": "No Issues Found",
   "noIssuesDescription": "This repository has no open issues at the moment.",
   "noPullRequests": "No Pull Requests",

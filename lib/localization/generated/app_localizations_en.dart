@@ -86,6 +86,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exploreRepositories => 'Explore Repositories';
 
   @override
+  String get removedFromFavorites => 'removed from favorites';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
   String get noIssuesFound => 'No Issues Found';
 
   @override

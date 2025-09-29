@@ -23,6 +23,8 @@
   "noFavoritesDescription": "Zacznij eksplorować repozytoria i dodaj ulubione, aby zobaczyć je tutaj.",
   "favoritesEmptyDescription": "Możesz dodawać repozytoria do ulubionych, dotykając ikonę serca na dowolnej karcie repozytorium.",
   "exploreRepositories": "Eksploruj repozytoria",
+  "removedFromFavorites": "usunięto z ulubionych",
+  "undo": "Cofnij",
   "noIssuesFound": "Nie znaleziono problemów",
   "noIssuesDescription": "To repozytorium nie ma obecnie otwartych problemów.",
   "noPullRequests": "Brak próśb o scalenie",

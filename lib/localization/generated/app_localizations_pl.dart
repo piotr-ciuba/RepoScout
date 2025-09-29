@@ -86,6 +86,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get exploreRepositories => 'Eksploruj repozytoria';
 
   @override
+  String get removedFromFavorites => 'usunięto z ulubionych';
+
+  @override
+  String get undo => 'Cofnij';
+
+  @override
   String get noIssuesFound => 'Nie znaleziono problemów';
 
   @override

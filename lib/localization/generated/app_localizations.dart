@@ -242,6 +242,18 @@ abstract class AppLocalizations {
   /// **'Explore Repositories'**
   String get exploreRepositories;
 
+  /// No description provided for @removedFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'removed from favorites'**
+  String get removedFromFavorites;
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
+
   /// No description provided for @noIssuesFound.
   ///
   /// In en, this message translates to:
