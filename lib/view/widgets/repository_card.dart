@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:repo_scout_app/common/app_colors.dart';
 import 'package:repo_scout_app/common/app_sizes.dart';
 import 'package:repo_scout_app/common/app_text_styles.dart';
 import 'package:repo_scout_app/common/routes.dart';
+import 'package:repo_scout_app/core/blocs/github/github_bloc.dart';
 import 'package:repo_scout_app/extensions/localized_context.dart';
 import 'package:repo_scout_app/models/repo/repo.dart';
 
@@ -16,6 +18,9 @@ class RepositoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final githubBloc = context.watch<GithubBloc>();
+    final isFavorite = githubBloc.state.favoriteRepos.any((repo) => repo.id == repository.id);
+
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(
@@ -34,7 +39,7 @@ class RepositoryCard extends StatelessWidget {
                 children: [
                   if (index != null) _buildIndexIndicator(),
                   SizedBox(width: AppSizes.baseW),
-                  _buildTitleAuthor(context),
+                  _buildTitleAuthor(context, isFavorite),
                 ],
               ),
               SizedBox(height: AppSizes.baseV),
@@ -74,7 +79,7 @@ class RepositoryCard extends StatelessWidget {
     );
   }
 
-  Widget _buildTitleAuthor(BuildContext context) {
+  Widget _buildTitleAuthor(BuildContext context, bool isFavorite) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,6 +110,20 @@ class RepositoryCard extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              IconButton(
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: isFavorite ? AppColors.primaryRed600 : AppColors.primaryGrey600,
+                ),
+                onPressed: () {
+                  final githubBloc = context.read<GithubBloc>();
+                  if (isFavorite) {
+                    githubBloc.add(RemoveFavoriteRepoEvent(repository));
+                  } else {
+                    githubBloc.add(AddFavoriteRepoEvent(repository));
+                  }
+                },
               ),
             ],
           ),
