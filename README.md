@@ -72,20 +72,20 @@ This project showcases professional Flutter development practices:
 
 ## 📊 Screenshots
 
-<!-- Screenshots will be added here -->
-*Screenshots showcasing the app's features will be added in this section*
+<img width="180" height="404" alt="Screenshot_1759182251" src="https://github.com/user-attachments/assets/4057c95e-f93e-44ad-91ba-85fcb7bf1681" />
+<img width="180" height="404" alt="Screenshot_1759182247" src="https://github.com/user-attachments/assets/d4fb7ba0-0b02-46b2-8a4d-3123072c8620" />
+<img width="180" height="404" alt="Screenshot_1759182363" src="https://github.com/user-attachments/assets/c301bfaa-d338-4419-9b4b-d75e73b3ad90" />
+<img width="180" height="404" alt="Screenshot_1759182411" src="https://github.com/user-attachments/assets/d9438f5a-4215-4f6b-83d8-69b9a4ba1064" />
 
-### 🔍 Search & Discovery
-[Search interface screenshots]
+<img width="180" height="404" alt="Screenshot_1759182431" src="https://github.com/user-attachments/assets/dc276d88-7c01-45a8-bead-5f568f119ba2" />
+<img width="180" height="404" alt="Screenshot_1759182435" src="https://github.com/user-attachments/assets/8b5e4328-8c3c-40ff-8ddd-fa7272b1bc95" />
+<img width="180" height="404" alt="Screenshot_1759182472" src="https://github.com/user-attachments/assets/4c768b87-610c-424b-8083-4311ef644830" />
+<img width="180" height="404" alt="Screenshot_1759182476" src="https://github.com/user-attachments/assets/1fd0ae87-eb74-475a-9a1b-2b539cbf4546" />
 
-### 📱 Repository Details
-[Repository details page screenshots]
-
-### ❤️ Favorites Management
-[Favorites page screenshots]
-
-### 🎯 Random Discovery
-[Discovery feature screenshots]
+<img width="180" height="404" alt="Screenshot_1759182505" src="https://github.com/user-attachments/assets/4a6a1b2f-3a52-44e1-ad2b-9bbd1f08afc7" />
+<img width="180" height="404" alt="Screenshot_1759182392" src="https://github.com/user-attachments/assets/d48bde2f-9e7b-4c9f-9c9c-40c1173932d8" />
+<img width="180" height="404" alt="Screenshot_1759182378" src="https://github.com/user-attachments/assets/6ca26c43-831b-4c44-91a9-63a255716cc4" />
+<img width="180" height="404" alt="Screenshot_1759182416" src="https://github.com/user-attachments/assets/6ec0bc98-91e2-44b1-9834-aeae2f427e5c" />
 
 ## 🏆 Best Practices Demonstrated
 
