@@ -11,15 +11,23 @@ import 'package:repo_scout_app/extensions/localized_context.dart';
 import 'package:repo_scout_app/models/repo/repo.dart';
 
 class RepositoryCard extends StatelessWidget {
-  const RepositoryCard({super.key, required this.repository, this.index});
+  const RepositoryCard({
+    super.key,
+    required this.repository,
+    this.index,
+    this.shouldHideFavoriteButton = false,
+  });
 
   final Repo repository;
   final int? index;
+  final bool shouldHideFavoriteButton;
 
   @override
   Widget build(BuildContext context) {
     final githubBloc = context.watch<GithubBloc>();
-    final isFavorite = githubBloc.state.favoriteRepos.any((repo) => repo.id == repository.id);
+    final isFavorite = githubBloc.state.favoriteRepos.any(
+      (repo) => repo.id == repository.id,
+    );
 
     return Card(
       elevation: 2,
@@ -111,20 +119,24 @@ class RepositoryCard extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(
-                icon: Icon(
-                  isFavorite ? Icons.favorite : Icons.favorite_border,
-                  color: isFavorite ? AppColors.primaryRed600 : AppColors.primaryGrey600,
-                ),
-                onPressed: () {
-                  final githubBloc = context.read<GithubBloc>();
-                  if (isFavorite) {
-                    githubBloc.add(RemoveFavoriteRepoEvent(repository));
-                  } else {
-                    githubBloc.add(AddFavoriteRepoEvent(repository));
-                  }
-                },
-              ),
+              shouldHideFavoriteButton
+                  ? const SizedBox()
+                  : IconButton(
+                      icon: Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                        color: isFavorite
+                            ? AppColors.primaryRed600
+                            : AppColors.primaryGrey600,
+                      ),
+                      onPressed: () {
+                        final githubBloc = context.read<GithubBloc>();
+                        if (isFavorite) {
+                          githubBloc.add(RemoveFavoriteRepoEvent(repository));
+                        } else {
+                          githubBloc.add(AddFavoriteRepoEvent(repository));
+                        }
+                      },
+                    ),
             ],
           ),
           Text(

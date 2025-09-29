@@ -33,6 +33,7 @@ class _SearchPageState extends State<SearchPage> {
     context.read<GithubBloc>().add(
       const FetchPublicReposEvent(page: 1, perPage: 10),
     );
+    context.read<GithubBloc>().add(FetchFavoriteReposEvent());
   }
 
   @override

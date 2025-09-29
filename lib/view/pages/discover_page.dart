@@ -111,7 +111,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
         if (state is GithubError) {
           return EmptyStateWidget(type: EmptyStateType.welcome);
         } else {
-          return buildRepositoryListView(repositories: state.repos);
+          final List<Repo> repositories = List.from(state.repos);
+          return buildRepositoryListView(repositories: repositories);
         }
       },
     );
@@ -137,7 +138,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
         children: [
           buildDiscoveryMotivationCard(),
           SizedBox(height: AppSizes.mediumV),
-          RepositoryCard(repository: randomRepo),
+          RepositoryCard(
+            repository: randomRepo,
+            shouldHideFavoriteButton: true,
+          ),
           SizedBox(height: AppSizes.extraLargeV),
           buildDiscoverMoreButton(),
         ],
